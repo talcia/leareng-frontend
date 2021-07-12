@@ -1,0 +1,30 @@
+.input {
+	width: 50%;
+	margin: 1rem auto 0.5rem;
+}
+
+.input input {
+	display: block;
+	width: 100%;
+	padding: 0.5rem 1rem;
+	border: 1px solid transparent;
+	background-color: var(--main-background);
+}
+
+.input input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+.input input.invalid {
+	border: 1px solid var(--orange);
+}
+
+.input .errorText {
+	color: var(--orange);
+	text-align: left;
+	font-size: 0.8rem;
+	margin: 0.2rem;
+}
