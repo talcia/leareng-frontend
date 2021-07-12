@@ -1,0 +1,16 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+:root {
+	--main-background: #f8f8f8;
+	--light-blue: #eaf6fd;
+	--orange: #f16d21;
+	--dark-blue: #143047;
+}

@@ -1,0 +1,32 @@
+.header {
+	width: 95%;
+	height: 4rem;
+	margin: 0 auto;
+	border-bottom: 2px solid var(--dark-blue);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5%;
+}
+
+.logo {
+	font-size: 2rem;
+	color: var(--orange);
+}
+
+.header a {
+	text-decoration: none;
+	font-weight: bold;
+	color: var(--dark-blue);
+}
+
+.header ul {
+	list-style: none;
+	display: flex;
+	align-items: baseline;
+}
+
+.header li {
+	margin: 0 1rem;
+	font-size: 1.3rem;
+}

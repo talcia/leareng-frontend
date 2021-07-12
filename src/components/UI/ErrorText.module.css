@@ -1,0 +1,9 @@
+.error {
+	width: 50%;
+	margin: 0 auto;
+	background-color: rgb(250, 166, 166);
+	padding: 1.3rem 0.1rem;
+	border: 1px solid red;
+	color: var(--dark-blue);
+	font-size: 0.8rem;
+}
