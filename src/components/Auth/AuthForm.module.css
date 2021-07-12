@@ -1,0 +1,48 @@
+.auth {
+	margin: 3rem auto;
+	width: 95%;
+	max-width: 35rem;
+	background-color: var(--light-blue);
+	padding: 3rem 1rem;
+	text-align: center;
+}
+
+.auth h1 {
+	font-size: 2rem;
+	color: var(--dark-blue);
+	margin: 0.5rem;
+}
+
+.auth p {
+	font-size: 1.2rem;
+	color: var(--dark-blue);
+	margin: 1rem 0 3rem;
+}
+
+.auth p span {
+	color: var(--orange);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.frgtPass {
+	width: 50%;
+	margin: 0 auto;
+	text-align: right;
+}
+
+.frgtPass a {
+	text-decoration: none;
+	color: var(--orange);
+}
+
+button {
+	margin-top: 1.5rem;
+	cursor: pointer;
+	background-color: var(--orange);
+	border: 1px solid var(--orange);
+	width: 50%;
+	padding: 0.5rem 1rem;
+	color: var(--main-background);
+	font-size: 1.2rem;
+}
