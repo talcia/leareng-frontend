@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux';
 
 import { getTokenFromLocalStorage } from './store/auth-actions';
 import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
+require('dotenv').config();
 
 function App() {
 	const isAuth = useSelector((state) => state.auth.isAuthenticated);
