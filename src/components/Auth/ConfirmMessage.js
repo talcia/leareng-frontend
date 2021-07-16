@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 
 import classes from './ConfirmMessage.module.css';
 
-const ConfirmMessage = ({ title, message }) => {
+const ConfirmMessage = ({
+	title,
+	message,
+	isButtonVisible,
+	buttonLink,
+	buttonText,
+}) => {
 	return (
 		<section className={classes.confirmMessage}>
 			<h1>{title}</h1>
 			<p>{message}</p>
-			<Link to="/auth/login">Back to login page</Link>
+			{isButtonVisible && <Link to={buttonLink}>{buttonText}</Link>}
 		</section>
 	);
 };

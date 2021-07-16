@@ -12,6 +12,9 @@ const ForgotPasswordPage = () => {
 			message={
 				'We have sent a password recover instructions to your email '
 			}
+			isButtonVisible={true}
+			buttonLink={'/auth/login'}
+			buttonText={'Back to login page'}
 		/>
 	) : (
 		<ForgotPasswordForm setIsEmailWasSent={setIsEmailWasSent} />

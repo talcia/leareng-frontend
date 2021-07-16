@@ -4,13 +4,16 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import AuthPage from './pages/auth/AuthPage';
 import HomePage from './pages/HomePage';
+import UnitPage from './pages/UnitPage';
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
+import SendConfirmEmailPage from './pages/auth/SendConfirmEmailPage';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { getTokenFromLocalStorage } from './store/auth-actions';
+import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 
 function App() {
 	const isAuth = useSelector((state) => state.auth.isAuthenticated);
@@ -44,6 +47,17 @@ function App() {
 				<Route path="/auth/reset-password/:token">
 					<ResetPasswordPage />
 				</Route>
+				<Route path="/auth/confirm-email/:token">
+					<ConfirmEmailPage />
+				</Route>
+				<Route path="/auth/send-confirm-email">
+					<SendConfirmEmailPage />
+				</Route>
+				{isAuth && (
+					<Route path="/units">
+						<UnitPage />
+					</Route>
+				)}
 			</Switch>
 		</Layout>
 	);

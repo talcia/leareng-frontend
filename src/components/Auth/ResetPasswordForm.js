@@ -59,6 +59,8 @@ const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 				},
 			});
 			setIsEmailWasSent(true);
+			passwordReset();
+			confirmPasswordReset();
 		} catch (err) {
 			setFormError(err);
 		}

@@ -17,7 +17,11 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 		reset: emailReset,
 		valueChangeHandler: emailChangeHandler,
 		inputBlurHandler: emailBlurHandler,
-	} = useInput((value) => value.includes('@'));
+	} = useInput((value) => {
+		const re =
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(value).toLowerCase());
+	});
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
@@ -30,19 +34,29 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 		const userData = { email: enteredEmail };
 
 		try {
-			await fetch('http://localhost:8080/auth/resetPassword', {
-				method: 'POST',
-				body: JSON.stringify(userData),
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			});
+			const response = await fetch(
+				'http://localhost:8080/auth/resetPassword',
+				{
+					method: 'POST',
+					body: JSON.stringify(userData),
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+			const data = await response.json();
+			console.log(data);
+			if (data.status === 404) {
+				throw data.message;
+			}
+			if (response.status !== 200) {
+				throw new Error('Something went wrong');
+			}
 			setIsEmailWasSent(true);
+			emailReset();
 		} catch (err) {
-			console.log(err.status);
-			setFormError(err.message);
+			setFormError(err);
 		}
-		emailReset();
 	};
 
 	return (
