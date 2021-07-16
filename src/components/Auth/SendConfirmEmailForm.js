@@ -5,9 +5,12 @@ import { useState } from 'react';
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
 
+import ReactSpinner from 'react-bootstrap-spinner';
+
 import classes from './ForgotPasswordForm.module.css';
 
-const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
+const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
+	const [isLoading, setIsLoading] = useState(false);
 	const [formError, setFormError] = useState(null);
 
 	const {
@@ -34,8 +37,9 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 		const userData = { email: enteredEmail };
 
 		try {
+			setIsLoading(true);
 			const response = await fetch(
-				'http://localhost:8080/auth/resetPassword',
+				'http://localhost:8080/auth/sendConfirmEmailAgain',
 				{
 					method: 'POST',
 					body: JSON.stringify(userData),
@@ -54,18 +58,20 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 			}
 			setIsEmailWasSent(true);
 			emailReset();
+			setIsLoading(false);
 		} catch (err) {
+			setIsLoading(false);
 			setFormError(err);
 		}
 	};
 
 	return (
 		<section className={classes.forgotPwd} onSubmit={submitHandler}>
-			<h1>Reset password</h1>
+			<h1>Confirm email</h1>
 			<p>
 				Enter the email associated with your account and we'll{' '}
-				<span>send an email with instruction</span> to reset your
-				password
+				<span>send an email with link</span> to confirm your email
+				address
 			</p>
 			{formError && <ErrorText text={formError} />}
 
@@ -80,10 +86,16 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 					hasError={emailHasError}
 					errorText={'Email must be valid'}
 				/>
-				<button type="submit">Send email</button>
+				<button type="submit">
+					{isLoading ? (
+						<ReactSpinner animation="border" />
+					) : (
+						'Send email'
+					)}
+				</button>
 			</form>
 		</section>
 	);
 };
 
-export default ForgotPasswordForm;
+export default SendConfirmEmailForm;
