@@ -16,7 +16,7 @@ const ConfirmEmailPage = () => {
 	const sendRequest = useCallback(async () => {
 		try {
 			const response = await fetch(
-				`${process.env.URL}/auth/confirmEmail/${token}`
+				`https://leareng.herokuapp.com/auth/confirmEmail/${token}`
 			);
 			const data = await response.json();
 			if (data.status === 400) {

@@ -35,7 +35,7 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 
 		try {
 			const response = await fetch(
-				`${process.env.URL}/auth/resetPassword`,
+				`https://leareng.herokuapp.com/auth/resetPassword`,
 				{
 					method: 'POST',
 					body: JSON.stringify(userData),

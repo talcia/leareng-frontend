@@ -5,8 +5,6 @@ import useInput from '../../hooks/use-input';
 
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
-import ReactSpinner from 'react-bootstrap-spinner';
-
 import classes from './AuthForm.module.css';
 import { useDispatch } from 'react-redux';
 import { signupUser, loginUser } from '../../store/auth-actions';
@@ -189,13 +187,7 @@ const AuthForm = (props) => {
 				)}
 				<div>
 					<button className={classes.button}>
-						{isLoading ? (
-							<ReactSpinner animation="border" role="status" />
-						) : props.isLogin ? (
-							'Login'
-						) : (
-							'Sign up'
-						)}
+						{props.isLogin ? 'Login' : 'Sign up'}
 					</button>
 				</div>
 			</form>

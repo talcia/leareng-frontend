@@ -4,7 +4,7 @@ import jwt from 'jwt-decode';
 export const signupUser = (userData) => {
 	return async () => {
 		try {
-			const url = `${process.env.URL}/auth/signup`;
+			const url = `https://leareng.herokuapp.com/auth/signup`;
 			await sendRequest(url, userData);
 		} catch (err) {
 			throw err;
@@ -15,7 +15,9 @@ export const signupUser = (userData) => {
 export const loginUser = (userData) => {
 	return async (dispatch) => {
 		try {
-			const url = `${process.env.URL}/auth/login`;
+			const url = `https://leareng.herokuapp.com/auth/login`;
+			console.log(userData);
+			console.log(JSON.stringify(userData));
 			const data = await sendRequest(url, userData);
 			const user = jwt(data.token);
 			dispatch(authActions.login({ token: data.token, user }));

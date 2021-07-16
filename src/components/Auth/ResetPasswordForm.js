@@ -51,13 +51,16 @@ const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 		};
 
 		try {
-			await fetch(`${process.env.URL}/auth/resetPassword/${token}`, {
-				method: 'POST',
-				body: JSON.stringify(passwordData),
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			});
+			await fetch(
+				`https://leareng.herokuapp.com/auth/resetPassword/${token}`,
+				{
+					method: 'POST',
+					body: JSON.stringify(passwordData),
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
 			setIsEmailWasSent(true);
 			passwordReset();
 			confirmPasswordReset();

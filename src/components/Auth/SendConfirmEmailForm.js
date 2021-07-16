@@ -5,8 +5,6 @@ import { useState } from 'react';
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
 
-import ReactSpinner from 'react-bootstrap-spinner';
-
 import classes from './ForgotPasswordForm.module.css';
 
 const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
@@ -39,7 +37,7 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 		try {
 			setIsLoading(true);
 			const response = await fetch(
-				`${process.env.URL}/auth/sendConfirmEmailAgain`,
+				`https://leareng.herokuapp.com/auth/sendConfirmEmailAgain`,
 				{
 					method: 'POST',
 					body: JSON.stringify(userData),
@@ -86,13 +84,7 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 					hasError={emailHasError}
 					errorText={'Email must be valid'}
 				/>
-				<button type="submit">
-					{isLoading ? (
-						<ReactSpinner animation="border" />
-					) : (
-						'Send email'
-					)}
-				</button>
+				<button type="submit">{'Send email'}</button>
 			</form>
 		</section>
 	);
