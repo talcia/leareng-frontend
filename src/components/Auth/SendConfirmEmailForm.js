@@ -39,7 +39,7 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 		try {
 			setIsLoading(true);
 			const response = await fetch(
-				'http://localhost:8080/auth/sendConfirmEmailAgain',
+				`${process.env.URL}/auth/sendConfirmEmailAgain`,
 				{
 					method: 'POST',
 					body: JSON.stringify(userData),

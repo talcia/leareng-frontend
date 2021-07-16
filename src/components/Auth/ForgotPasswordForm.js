@@ -35,7 +35,7 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 
 		try {
 			const response = await fetch(
-				'http://localhost:8080/auth/resetPassword',
+				`${process.env.URL}/auth/resetPassword`,
 				{
 					method: 'POST',
 					body: JSON.stringify(userData),

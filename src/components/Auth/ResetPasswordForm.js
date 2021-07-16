@@ -51,7 +51,7 @@ const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 		};
 
 		try {
-			await fetch(`http://localhost:8080/auth/resetPassword/${token}`, {
+			await fetch(`${process.env.URL}/auth/resetPassword/${token}`, {
 				method: 'POST',
 				body: JSON.stringify(passwordData),
 				headers: {

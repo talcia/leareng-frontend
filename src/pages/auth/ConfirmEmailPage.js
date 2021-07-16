@@ -16,7 +16,7 @@ const ConfirmEmailPage = () => {
 	const sendRequest = useCallback(async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:8080/auth/confirmEmail/${token}`
+				`${process.env.URL}/auth/confirmEmail/${token}`
 			);
 			const data = await response.json();
 			if (data.status === 400) {
