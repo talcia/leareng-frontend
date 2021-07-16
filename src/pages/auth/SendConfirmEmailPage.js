@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import ResetPasswordForm from '../../components/Auth/ResetPasswordForm';
 import ConfirmMessage from '../../components/Auth/ConfirmMessage';
+import SendConfirmEmailForm from '../../components/Auth/SendConfirmEmailForm';
 
-const ResetPasswordPage = () => {
+const SendConfirmEmailPage = () => {
 	const [isEmailWasSent, setIsEmailWasSent] = useState(false);
 
 	return isEmailWasSent ? (
 		<ConfirmMessage
 			setIsEmailWasSent={setIsEmailWasSent}
-			title={'Your password was reset'}
-			message={'Now you can login to your account'}
-			isButtonVisible={true}
+			title={'Check your mail'}
+			message={'We have sent a link to confirm email page to your email'}
+			isButtonVisible={false}
 			buttonLink={'/auth/login'}
 			buttonText={'Back to login page'}
 		/>
 	) : (
-		<ResetPasswordForm setIsEmailWasSent={setIsEmailWasSent} />
+		<SendConfirmEmailForm setIsEmailWasSent={setIsEmailWasSent} />
 	);
 };
 
-export default ResetPasswordPage;
+export default SendConfirmEmailPage;

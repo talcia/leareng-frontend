@@ -5,6 +5,7 @@ import useInput from '../../hooks/use-input';
 
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
+import ReactSpinner from 'react-bootstrap-spinner';
 
 import classes from './AuthForm.module.css';
 import { useDispatch } from 'react-redux';
@@ -14,6 +15,7 @@ const AuthForm = (props) => {
 	const history = useHistory();
 	const [formError, setFormError] = useState(null);
 	const dispatch = useDispatch();
+	const [isLoading, setIsLoading] = useState(false);
 
 	const {
 		value: enteredName,
@@ -30,7 +32,11 @@ const AuthForm = (props) => {
 		reset: emailReset,
 		valueChangeHandler: emailChangeHandler,
 		inputBlurHandler: emailBlurHandler,
-	} = useInput((value) => value.includes('@'));
+	} = useInput((value) => {
+		const re =
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		return re.test(String(value).toLowerCase());
+	});
 	const {
 		value: enteredPassword,
 		isValid: passwordIsValid,
@@ -88,6 +94,7 @@ const AuthForm = (props) => {
 
 		let userData;
 		if (props.isLogin) {
+			setIsLoading(true);
 			userData = {
 				email: enteredEmail,
 				password: enteredPassword,
@@ -181,7 +188,15 @@ const AuthForm = (props) => {
 					/>
 				)}
 				<div>
-					<button>{props.isLogin ? 'Login' : 'Sign up'}</button>
+					<button className={classes.button}>
+						{isLoading ? (
+							<ReactSpinner animation="border" role="status" />
+						) : props.isLogin ? (
+							'Login'
+						) : (
+							'Sign up'
+						)}
+					</button>
 				</div>
 			</form>
 		</section>
