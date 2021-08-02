@@ -52,7 +52,7 @@ const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 
 		try {
 			await fetch(
-				`https://leareng.herokuapp.com/auth/resetPassword/${token}`,
+				`${process.env.REACT_APP_BACKENDURL}/auth/resetPassword/${token}`,
 				{
 					method: 'POST',
 					body: JSON.stringify(passwordData),
