@@ -12,6 +12,12 @@ const unitSlice = createSlice({
 		addUnit(state, action) {
 			state.ownUnits.push(action.payload.unit);
 		},
+		fetchUnit(state, action) {
+			state.ownUnits = action.payload.units || [];
+		},
+		fetchFavouriteUnit(state, action) {
+			state.favouriteUnits = action.payload.units || [];
+		},
 		addUnitToFavourite(state, action) {
 			state.favouriteUnits.push(action.payload.unit);
 		},
@@ -30,6 +36,10 @@ const unitSlice = createSlice({
 			state.unit = state.unit.filter(
 				(item) => item.id !== action.payload.unitId
 			);
+		},
+		resetUnit(state, action) {
+			state.ownUnits = [];
+			state.favouriteUnits = [];
 		},
 	},
 });
