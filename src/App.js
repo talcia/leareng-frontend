@@ -13,22 +13,28 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { getTokenFromLocalStorage } from './store/auth-actions';
+import { fetchOwnUnits, fetchFavouriteUnits } from './store/unit-actions';
 import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 require('dotenv').config();
 
 function App() {
 	const isAuth = useSelector((state) => state.auth.isAuthenticated);
 	const dispatch = useDispatch();
+	const token = useSelector((state) => state.auth.token);
 
 	const checkIfTokenInLocalStorage = async () => {
 		try {
 			await dispatch(getTokenFromLocalStorage());
+			if (isAuth) {
+				await dispatch(fetchOwnUnits(token));
+				await dispatch(fetchFavouriteUnits(token));
+			}
 		} catch (err) {
 			throw err;
 		}
 	};
 
-	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage]);
+	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage, token]);
 
 	return (
 		<Layout>
