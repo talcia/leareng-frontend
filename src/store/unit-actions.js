@@ -4,7 +4,7 @@ import jwt from 'jwt-decode';
 export const addUnit = (unitData, token) => {
 	return async (dispatch) => {
 		try {
-			const url = `${process.env.REACT_APP_FRONTENDURL}/units`;
+			const url = `${process.env.REACT_APP_BACKENDURL}/units`;
 			const data = await sendRequest(url, {
 				method: 'POST',
 				data: unitData,
@@ -22,7 +22,8 @@ export const fetchOwnUnits = (token) => {
 	return async (dispatch) => {
 		try {
 			const user = jwt(token);
-			const url = `${process.env.REACT_APP_FRONTENDURL}/users/${user.userId}/units`;
+			const url = `${process.env.REACT_APP_BACKENDURL}/users/${user.userId}/units`;
+			console.log(url);
 			const data = await sendRequest(url, {
 				method: 'GET',
 				token,
@@ -38,7 +39,7 @@ export const fetchOwnUnits = (token) => {
 export const fetchFavouriteUnits = (token) => {
 	return async (dispatch) => {
 		try {
-			const url = `${process.env.REACT_APP_FRONTENDURL}/favourites`;
+			const url = `${process.env.REACT_APP_BACKENDURL}/favourites`;
 			const data = await sendRequest(url, {
 				method: 'GET',
 				token,
