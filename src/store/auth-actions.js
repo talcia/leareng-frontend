@@ -1,10 +1,11 @@
 import { authActions } from './auth-slice';
+import { unitActions } from './unit-slice';
 import jwt from 'jwt-decode';
 
 export const signupUser = (userData) => {
 	return async () => {
 		try {
-			const url = `https://leareng.herokuapp.com/auth/signup`;
+			const url = `${process.env.REACT_APP_FRONTENDURL}/auth/signup`;
 			await sendRequest(url, userData);
 		} catch (err) {
 			throw err;
@@ -15,12 +16,21 @@ export const signupUser = (userData) => {
 export const loginUser = (userData) => {
 	return async (dispatch) => {
 		try {
-			const url = `https://leareng.herokuapp.com/auth/login`;
-			console.log(userData);
-			console.log(JSON.stringify(userData));
+			const url = `${process.env.REACT_APP_FRONTENDURL}/auth/login`;
 			const data = await sendRequest(url, userData);
 			const user = jwt(data.token);
 			dispatch(authActions.login({ token: data.token, user }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
+export const logoutUser = () => {
+	return async (dispatch) => {
+		try {
+			dispatch(unitActions.resetUnit());
+			dispatch(authActions.logout());
 		} catch (err) {
 			throw err;
 		}
