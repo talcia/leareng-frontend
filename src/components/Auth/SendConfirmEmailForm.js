@@ -37,7 +37,7 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 		try {
 			setIsLoading(true);
 			const response = await fetch(
-				`https://leareng.herokuapp.com/auth/sendConfirmEmailAgain`,
+				`${process.env.REACT_APP_FRONTENDURL}/auth/sendConfirmEmailAgain`,
 				{
 					method: 'POST',
 					body: JSON.stringify(userData),
