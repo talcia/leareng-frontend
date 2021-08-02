@@ -1,13 +1,50 @@
+import { unitActions } from './unit-slice';
+import jwt from 'jwt-decode';
+
 export const addUnit = (unitData, token) => {
-	return async () => {
+	return async (dispatch) => {
 		try {
-			const url = `https://leareng.herokuapp.com/units`;
+			const url = `${process.env.REACT_APP_FRONTENDURL}/units`;
 			const data = await sendRequest(url, {
 				method: 'POST',
 				data: unitData,
 				token,
 			});
-			console.log(data);
+			const { createdAt, updatedAt, ...unit } = data.unit;
+			dispatch(unitActions.addUnit({ unit }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
+export const fetchOwnUnits = (token) => {
+	return async (dispatch) => {
+		try {
+			const user = jwt(token);
+			const url = `${process.env.REACT_APP_FRONTENDURL}/users/${user.userId}/units`;
+			const data = await sendRequest(url, {
+				method: 'GET',
+				token,
+			});
+			const units = data.user.units;
+			dispatch(unitActions.fetchUnit({ units }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
+export const fetchFavouriteUnits = (token) => {
+	return async (dispatch) => {
+		try {
+			const url = `${process.env.REACT_APP_FRONTENDURL}/favourites`;
+			const data = await sendRequest(url, {
+				method: 'GET',
+				token,
+			});
+			const units = data.units;
+			dispatch(unitActions.fetchFavouriteUnit({ units }));
 		} catch (err) {
 			throw err;
 		}
@@ -15,7 +52,6 @@ export const addUnit = (unitData, token) => {
 };
 
 const sendRequest = async (url, requestObject) => {
-	console.log(requestObject.token);
 	const response = await fetch(url, {
 		method: requestObject.method,
 		body: JSON.stringify(requestObject.data),

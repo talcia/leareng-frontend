@@ -1,4 +1,5 @@
 import { authActions } from './auth-slice';
+import { unitActions } from './unit-slice';
 import jwt from 'jwt-decode';
 
 export const signupUser = (userData) => {
@@ -19,6 +20,17 @@ export const loginUser = (userData) => {
 			const data = await sendRequest(url, userData);
 			const user = jwt(data.token);
 			dispatch(authActions.login({ token: data.token, user }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
+export const logoutUser = () => {
+	return async (dispatch) => {
+		try {
+			dispatch(unitActions.resetUnit());
+			dispatch(authActions.logout());
 		} catch (err) {
 			throw err;
 		}

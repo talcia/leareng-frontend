@@ -1,0 +1,38 @@
+.unit {
+	margin: 5rem 2rem 2rem 2rem;
+	background-color: var(--light-blue);
+	padding: 1.5rem 3rem;
+	text-align: center;
+}
+
+.unit .title {
+	margin-bottom: 2rem;
+	font-size: 1.2rem;
+	color: var(--dark-blue);
+	font-weight: bold;
+}
+
+.unit p span {
+	color: var(--orange);
+}
+
+.unit p {
+	margin-top: 1rem;
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.actions button {
+	margin-bottom: 1.5rem;
+	cursor: pointer;
+	background-color: var(--orange);
+	border: 1px solid var(--orange);
+	width: 80%;
+	padding: 0.3rem 1rem;
+	color: var(--main-background);
+	font-size: 1.1rem;
+}

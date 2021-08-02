@@ -4,11 +4,7 @@ import AuthForm from '../../components/Auth/AuthForm';
 const AuthPage = (props) => {
 	return (
 		<div>
-			{props.isLoginPage ? (
-				<AuthForm isLogin={true} />
-			) : (
-				<AuthForm isLogin={false} />
-			)}
+			<AuthForm isLogin={props.isLoginPage} />
 		</div>
 	);
 };

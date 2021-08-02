@@ -113,7 +113,7 @@ const AuthForm = (props) => {
 			};
 			try {
 				await dispatch(signupUser(userData));
-				history.push('/auth/login');
+				history.push('/auth/account-created');
 			} catch (err) {
 				setFormError(err.message);
 			}

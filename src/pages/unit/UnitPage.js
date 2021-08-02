@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import UnitNavigation from '../components/UnitPage/UnitNavigation';
-import AddUnit from '../components/UnitPage/AddUnit';
+import UnitNavigation from '../../components/Unit/UnitNavigation';
+import AddUnit from '../../components/Unit/AddUnit';
+import Units from '../../components/Unit/Units';
+import FavouriteUnits from '../../components/Unit/FavouriteUnits';
 
 const unitNavigationParams = {
 	yourUnits: {
@@ -27,12 +29,12 @@ const unitNavigationParams = {
 	},
 };
 
-const UnitPage = () => {
+const Unit = () => {
 	return (
 		<>
 			<Route path="/units" exact>
 				<UnitNavigation {...unitNavigationParams.yourUnits} />
-				{/* <Units /> */}
+				<Units />
 			</Route>
 			<Route path="/units/add" exact>
 				<UnitNavigation {...unitNavigationParams.addUnit} />
@@ -40,10 +42,10 @@ const UnitPage = () => {
 			</Route>
 			<Route path="/units/favourite" exact>
 				<UnitNavigation {...unitNavigationParams.favouriteUnits} />
-				{/* <favouriteUnits /> */}
+				<FavouriteUnits />
 			</Route>
 		</>
 	);
 };
 
-export default UnitPage;
+export default Unit;

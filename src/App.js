@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import AuthPage from './pages/auth/AuthPage';
 import HomePage from './pages/HomePage';
-import UnitPage from './pages/UnitPage';
+import UnitPage from './pages/unit/UnitPage';
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import SendConfirmEmailPage from './pages/auth/SendConfirmEmailPage';
@@ -13,22 +13,28 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { getTokenFromLocalStorage } from './store/auth-actions';
+import { fetchOwnUnits, fetchFavouriteUnits } from './store/unit-actions';
 import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 require('dotenv').config();
 
 function App() {
 	const isAuth = useSelector((state) => state.auth.isAuthenticated);
 	const dispatch = useDispatch();
+	const token = useSelector((state) => state.auth.token);
 
 	const checkIfTokenInLocalStorage = async () => {
 		try {
 			await dispatch(getTokenFromLocalStorage());
+			if (isAuth) {
+				await dispatch(fetchOwnUnits(token));
+				await dispatch(fetchFavouriteUnits(token));
+			}
 		} catch (err) {
 			throw err;
 		}
 	};
 
-	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage]);
+	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage, token]);
 
 	return (
 		<Layout>
@@ -42,6 +48,9 @@ function App() {
 				<Route path="/auth/signup" exact>
 					<AuthPage isLoginPage={false} />
 				</Route>
+				{/* <Route path="/auth/account-created" exact>
+					<AccountCreatedPage />
+				</Route> */}
 				<Route path="/auth/forgot-password" exact>
 					<ForgotPasswordPage />
 				</Route>
