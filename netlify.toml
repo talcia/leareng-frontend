@@ -7,3 +7,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[context.production.environment]
+  REACT_APP_BACKENDURL = "http://localhost:8080"
