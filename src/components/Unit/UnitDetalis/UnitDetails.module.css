@@ -1,0 +1,38 @@
+.wrapper {
+	max-width: 70%;
+	margin: 4rem auto;
+	background-color: var(--light-blue);
+	padding: 1rem 3rem;
+}
+
+.details {
+	max-width: 85%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	max-width: 80%;
+}
+
+.title p {
+	margin-left: 2rem;
+}
+
+.detail,
+.detail p {
+	margin-top: 1rem;
+}
+
+.detail span {
+	color: var(--orange);
+}
+
+.actions svg {
+	margin: 0.5rem;
+	cursor: pointer;
+}
