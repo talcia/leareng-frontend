@@ -18,6 +18,21 @@ export const addUnit = (unitData, token) => {
 	};
 };
 
+export const deleteUnit = (unitId, token) => {
+	return async (dispatch) => {
+		try {
+			const url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}`;
+			await sendRequest(url, {
+				method: 'DELETE',
+				token,
+			});
+			dispatch(unitActions.removeUnit({ unitId }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
 export const fetchOwnUnits = (token) => {
 	return async (dispatch) => {
 		try {
@@ -44,7 +59,7 @@ export const fetchFavouriteUnits = (token) => {
 				method: 'GET',
 				token,
 			});
-			const units = data.units;
+			const units = data.user.favouritesUnits;
 			dispatch(unitActions.fetchFavouriteUnit({ units }));
 		} catch (err) {
 			throw err;

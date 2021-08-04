@@ -1,0 +1,22 @@
+.delete {
+	padding: 2rem;
+}
+
+.delete h2 {
+	color: var(--dark-blue);
+	margin-bottom: 1.5rem;
+}
+
+.delete .deleteActions {
+	margin-top: 4rem;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.delete .cancel {
+	background-color: var(--main-background);
+	color: rgb(122, 119, 119);
+	border: none;
+	width: 10rem;
+	margin-right: 2rem;
+}
