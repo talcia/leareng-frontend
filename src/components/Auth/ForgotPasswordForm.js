@@ -6,6 +6,7 @@ import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
 
 import classes from './ForgotPasswordForm.module.css';
+import Button from '../UI/Button';
 
 const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 	const [formError, setFormError] = useState(null);
@@ -80,7 +81,7 @@ const ForgotPasswordForm = ({ setIsEmailWasSent }) => {
 					hasError={emailHasError}
 					errorText={'Email must be valid'}
 				/>
-				<button type="submit">Send email</button>
+				<Button text="Send email" type="submit" />
 			</form>
 		</section>
 	);

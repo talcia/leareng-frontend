@@ -3,6 +3,7 @@
 	background-color: var(--light-blue);
 	padding: 1.5rem 3rem;
 	text-align: center;
+	width: 15rem;
 }
 
 .unit .title {
@@ -10,6 +11,7 @@
 	font-size: 1.2rem;
 	color: var(--dark-blue);
 	font-weight: bold;
+	text-decoration: none;
 }
 
 .unit p span {
@@ -28,11 +30,8 @@
 
 .actions button {
 	margin-bottom: 1.5rem;
-	cursor: pointer;
-	background-color: var(--orange);
 	border: 1px solid var(--orange);
 	width: 80%;
 	padding: 0.3rem 1rem;
-	color: var(--main-background);
 	font-size: 1.1rem;
 }
