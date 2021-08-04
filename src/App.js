@@ -8,6 +8,7 @@ import UnitPage from './pages/unit/UnitPage';
 import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import SendConfirmEmailPage from './pages/auth/SendConfirmEmailPage';
+import AccountCreatedPage from './pages/auth/AccountCreatedPage';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -48,9 +49,9 @@ function App() {
 				<Route path="/auth/signup" exact>
 					<AuthPage isLoginPage={false} />
 				</Route>
-				{/* <Route path="/auth/account-created" exact>
+				<Route path="/auth/account-created" exact>
 					<AccountCreatedPage />
-				</Route> */}
+				</Route>
 				<Route path="/auth/forgot-password" exact>
 					<ForgotPasswordPage />
 				</Route>

@@ -11,7 +11,7 @@ const Units = () => {
 			<ul className={classes.units}>
 				{!units && <p>You haven't added any unit yet</p>}
 				{units.map((unit) => (
-					<Unit unit={unit} />
+					<Unit unit={unit} key={unit._id} />
 				))}
 			</ul>
 		</div>
