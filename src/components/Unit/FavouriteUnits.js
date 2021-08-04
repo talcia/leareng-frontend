@@ -13,7 +13,7 @@ const FavouriteUnits = () => {
 					You haven't liked any unit yet
 				</p>
 			)}
-			<ul className={'units'}>
+			<ul className={classes.units}>
 				{units.map((unit) => (
 					<Unit unit={unit} />
 				))}
