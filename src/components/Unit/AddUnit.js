@@ -10,8 +10,9 @@ import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
 
 import classes from './AddUnit.module.css';
+import Button from '../UI/Button';
 
-const AddUnit = () => {
+const AddUnit = ({ unit, isEditMode }) => {
 	const [formError, setFormError] = useState(null);
 	const [isPrivate, setIsPrivate] = useState(false);
 	const token = useSelector((state) => state.auth.token);
@@ -117,7 +118,7 @@ const AddUnit = () => {
 					/>
 					<label htmlFor="isPrivate">Private</label>
 				</div>
-				<button type="submit">Add unit</button>
+				<Button type="submit" text="Add unit" />
 			</form>
 		</section>
 	);

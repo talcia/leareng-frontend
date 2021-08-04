@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
+import Button from '../UI/Button';
 
 import classes from './ForgotPasswordForm.module.css';
 
@@ -84,7 +85,7 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 					hasError={emailHasError}
 					errorText={'Email must be valid'}
 				/>
-				<button type="submit">{'Send email'}</button>
+				<Button type="submit" text="Send email" />
 			</form>
 		</section>
 	);

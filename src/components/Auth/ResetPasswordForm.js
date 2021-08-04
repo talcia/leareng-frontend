@@ -5,6 +5,7 @@ import useInput from '../../hooks/use-input';
 
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
+import Button from '../UI/Button';
 
 import classes from './ResetPasswordForm.module.css';
 
@@ -98,7 +99,7 @@ const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 					hasError={confirmPasswordHasError}
 					errorText={`Passwords don't match`}
 				/>
-				<button type="submit">Reset Password</button>
+				<Button type="submit" text="Reset Password" />
 			</form>
 		</section>
 	);

@@ -9,6 +9,7 @@ import ErrorText from '../UI/ErrorText';
 import classes from './AuthForm.module.css';
 import { useDispatch } from 'react-redux';
 import { signupUser, loginUser } from '../../store/auth-actions';
+import Button from '../UI/Button';
 
 const AuthForm = (props) => {
 	const history = useHistory();
@@ -187,9 +188,10 @@ const AuthForm = (props) => {
 					/>
 				)}
 				<div>
-					<button className={classes.button}>
-						{props.isLogin ? 'Login' : 'Sign up'}
-					</button>
+					<Button
+						text={props.isLogin ? 'Login' : 'Sign up'}
+						type="submit"
+					/>
 				</div>
 			</form>
 		</section>
