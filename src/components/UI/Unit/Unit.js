@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../UI/Button';
+import Button from '../Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import classes from './Unit.module.css';
 
@@ -19,7 +21,10 @@ const Unit = ({ unit, isOwnUnit }) => {
 			<p>{`${numbersOfWords} ${
 				[0, 1].includes(numbersOfWords) ? 'word' : 'words'
 			}`}</p>
-			<p>{`<3 ${unit.popularity}`}</p>
+			<p>
+				<FontAwesomeIcon icon={faHeart} color={'var(--orange)'} />
+				{` ${unit.popularity}`}
+			</p>
 			<div className={classes.actions}>
 				<Button text="Play" />
 				{isOwnUnit && <Button text="Edit" />}

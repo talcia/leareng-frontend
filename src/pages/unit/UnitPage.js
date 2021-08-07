@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import UnitNavigation from '../../components/Unit/UnitNavigation';
 import AddUnit from '../../components/Unit/AddUnit';
-import Units from '../../components/Unit/Units';
+import OwnUnits from '../../components/Unit/OwnUnits';
 import FavouriteUnits from '../../components/Unit/FavouriteUnits';
 import UnitsDetailsPage from './UnitsDetailsPage';
 
@@ -30,7 +30,7 @@ const Unit = () => {
 		<Switch>
 			<Route path="/units" exact>
 				<UnitNavigation {...unitNavigationParams.yourUnits} />
-				<Units />
+				<OwnUnits />
 			</Route>
 			<Route path="/units/add" exact>
 				<UnitNavigation {...unitNavigationParams.addUnit} />
