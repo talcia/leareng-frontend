@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import DeleteUnit from './DeleteUnit';
+import useCreator from '../../../hooks/use-creator';
+import Heart from '../../UI/Heart';
 
 import classes from './UnitDetails.module.css';
-import DeleteUnit from './DeleteUnit';
 
 const UnitDetails = ({ unit }) => {
 	const [modalIsShown, setModalIsShown] = useState(false);
+	const isCreator = useCreator(unit.creator);
 
 	const editHandler = () => {
 		console.log('tak');
@@ -30,13 +33,7 @@ const UnitDetails = ({ unit }) => {
 					<div className={classes.title}>
 						<h1>{unit.name}</h1>
 						<p>
-							<span>
-								<FontAwesomeIcon
-									icon={faHeart}
-									color={'var(--orange)'}
-								/>{' '}
-								{unit.popularity}
-							</span>
+							<Heart unit={unit} />
 						</p>
 					</div>
 					<div className={classes.detail}>
@@ -50,18 +47,22 @@ const UnitDetails = ({ unit }) => {
 					</div>
 				</div>
 				<div className={classes.actions}>
-					<FontAwesomeIcon
-						icon={faEdit}
-						color={'var(--orange)'}
-						size={'1x'}
-						onClick={editHandler}
-					/>
-					<FontAwesomeIcon
-						icon={faTrash}
-						color={'var(--orange)'}
-						size={'1.5x'}
-						onClick={showModalHanlder}
-					/>
+					{isCreator && (
+						<>
+							<FontAwesomeIcon
+								icon={faEdit}
+								color={'var(--orange)'}
+								size={'1x'}
+								onClick={editHandler}
+							/>
+							<FontAwesomeIcon
+								icon={faTrash}
+								color={'var(--orange)'}
+								size={'1.5x'}
+								onClick={showModalHanlder}
+							/>
+						</>
+					)}
 				</div>
 			</div>
 
