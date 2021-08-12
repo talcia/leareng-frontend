@@ -7,6 +7,7 @@ import ErrorText from '../UI/ErrorText';
 import Button from '../UI/Button';
 
 import classes from './ForgotPasswordForm.module.css';
+import { sendRequest } from '../../utils/sendRequest';
 
 const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -35,26 +36,18 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 
 		const userData = { email: enteredEmail };
 
+		const url = `${process.env.REACT_APP_BACKENDURL}/auth/sendConfirmEmailAgain`;
+		const requestObject = {
+			method: 'POST',
+			data: userData,
+		};
+		const errorMessage = {
+			404: 'No user found with that email address',
+		};
+
 		try {
 			setIsLoading(true);
-			const response = await fetch(
-				`${process.env.REACT_APP_BACKENDURL}/auth/sendConfirmEmailAgain`,
-				{
-					method: 'POST',
-					body: JSON.stringify(userData),
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				}
-			);
-			const data = await response.json();
-			console.log(data);
-			if (data.status === 404) {
-				throw data.message;
-			}
-			if (response.status !== 200) {
-				throw new Error('Something went wrong');
-			}
+			await sendRequest(url, requestObject, errorMessage);
 			setIsEmailWasSent(true);
 			emailReset();
 			setIsLoading(false);

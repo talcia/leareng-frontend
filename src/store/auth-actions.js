@@ -1,12 +1,13 @@
 import { authActions } from './auth-slice';
 import { unitActions } from './unit-slice';
 import jwt from 'jwt-decode';
+import { sendRequest } from '../utils/sendRequest';
 
 export const signupUser = (userData) => {
 	return async () => {
 		try {
 			const url = `${process.env.REACT_APP_BACKENDURL}/auth/signup`;
-			await sendRequest(url, userData);
+			await sendReq(url, userData);
 		} catch (err) {
 			throw err;
 		}
@@ -17,7 +18,7 @@ export const loginUser = (userData) => {
 	return async (dispatch) => {
 		try {
 			const url = `${process.env.REACT_APP_BACKENDURL}/auth/login`;
-			const data = await sendRequest(url, userData);
+			const data = await sendReq(url, userData);
 			const user = jwt(data.token);
 			dispatch(authActions.login({ token: data.token, user }));
 		} catch (err) {
@@ -48,23 +49,15 @@ export const getTokenFromLocalStorage = () => {
 	};
 };
 
-const sendRequest = async (url, userData) => {
-	const response = await fetch(url, {
+const sendReq = async (url, userData) => {
+	const errorMessage = {
+		422: 'Provided email or password is invalid',
+		409: 'User with this email already exisits',
+	};
+	const requestObject = {
 		method: 'POST',
-		body: JSON.stringify(userData),
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	});
-	const data = await response.json();
-	if (data.status === 422) {
-		throw new Error('Provided email or password is invalid');
-	}
-	if (data.status === 409) {
-		throw new Error(data.message);
-	}
-	if (response.status !== 200 && response.status !== 201) {
-		throw new Error('Something went wrong');
-	}
+		data: userData,
+	};
+	const data = await sendRequest(url, requestObject, errorMessage);
 	return data;
 };

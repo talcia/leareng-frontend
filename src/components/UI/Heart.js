@@ -58,7 +58,7 @@ const Heart = ({ unit }) => {
 	};
 
 	return (
-		<p className={classes.heart}>
+		<p className={isCreator ? '' : classes.heart}>
 			<FontAwesomeIcon
 				onClick={toggleToFavHandler}
 				icon={

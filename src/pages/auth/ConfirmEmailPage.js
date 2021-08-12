@@ -14,16 +14,16 @@ const ConfirmEmailPage = () => {
 	const dispatch = useDispatch();
 
 	const sendRequest = useCallback(async () => {
+		const url = `${process.env.REACT_APP_BACKENDURL}/auth/confirmEmail/${token}`;
+		const requestObject = {
+			method: 'GET',
+		};
+		const errorMessage = {
+			400: 'Sorry but your link is invalid',
+			404: 'Sorry but your link expired',
+		};
 		try {
-			const response = await fetch(
-				`${process.env.REACT_APP_BACKENDURL}/auth/confirmEmail/${token}`
-			);
-			const data = await response.json();
-			if (data.status === 400) {
-				throw new Error('Sorry but your link is invalid');
-			} else if (data.status === 404) {
-				throw new Error('Sorry but your link expired');
-			}
+			const data = await sendRequest(url, requestObject, errorMessage);
 			const user = jwt(data.token);
 			dispatch(authActions.login({ token: data.token, user }));
 		} catch (err) {
@@ -35,7 +35,10 @@ const ConfirmEmailPage = () => {
 	}, [token, dispatch]);
 
 	useEffect(() => {
-		sendRequest();
+		async function fetchData() {
+			await sendRequest();
+		}
+		fetchData();
 	}, [sendRequest]);
 
 	return (

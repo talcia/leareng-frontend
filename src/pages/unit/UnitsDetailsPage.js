@@ -3,27 +3,25 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import UnitDetails from '../../components/Unit/UnitDetalis/UnitDetails';
+import { sendRequest } from '../../utils/sendRequest';
 
 const UnitsDetailsPage = () => {
 	const { unitId } = useParams();
 	const token = useSelector((state) => state.auth.token);
 	const [unit, setUnit] = useState();
-	console.log(unitId);
+
 	useEffect(() => {
-		fetch(`${process.env.REACT_APP_BACKENDURL}/units/${unitId}`, {
+		const url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}`;
+		const requestObject = {
 			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${token}`,
-			},
-		})
-			.then((data) => data.json())
-			.then((data) => setUnit(data.unit))
-			.catch((err) => {
-				console.log(err);
-			});
+			token: token,
+		};
+		async function fetchData() {
+			const data = await sendRequest(url, requestObject);
+			setUnit(data.unit);
+		}
+		fetchData();
 	}, [unitId, token]);
-	console.log(unit);
 
 	return <>{unit ? <UnitDetails unit={unit} /> : null}</>;
 };
