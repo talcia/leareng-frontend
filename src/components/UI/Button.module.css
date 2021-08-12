@@ -8,3 +8,9 @@ button {
 	color: var(--main-background);
 	font-size: 1.2rem;
 }
+
+.cancel {
+	background-color: var(--main-background);
+	border: 1px solid var(--main-background);
+	color: rgb(122, 119, 119);
+}

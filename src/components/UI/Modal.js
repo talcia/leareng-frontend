@@ -18,7 +18,7 @@ const ModalOverlay = (props) => {
 
 const portalElements = document.getElementById('overlays');
 
-const Modal = ({ onHideModal, title, text, button1, button2 }) => {
+const Modal = ({ onHideModal, title, text, button1, button2, children }) => {
 	return (
 		<>
 			{createPortal(
@@ -27,26 +27,28 @@ const Modal = ({ onHideModal, title, text, button1, button2 }) => {
 			)}
 			{createPortal(
 				<ModalOverlay>
-					<div className={classes.delete}>
-						<h2>{title}</h2>
-						<p>{text}</p>
-						<div className={classes.deleteActions}>
-							{button1 && (
-								<button
-									onClick={button1.onClick}
-									className={classes[button1.className]}
-								>
-									{button1.text}
-								</button>
-							)}
-							{button2 && (
-								<Button
-									onClick={button2.onClick}
-									text={button2.text}
-								/>
-							)}
+					{children || (
+						<div className={classes.delete}>
+							<h2>{title}</h2>
+							<p>{text}</p>
+							<div className={classes.deleteActions}>
+								{button1 && (
+									<button
+										onClick={button1.onClick}
+										className={classes[button1.className]}
+									>
+										{button1.text}
+									</button>
+								)}
+								{button2 && (
+									<Button
+										onClick={button2.onClick}
+										text={button2.text}
+									/>
+								)}
+							</div>
 						</div>
-					</div>
+					)}
 				</ModalOverlay>,
 				portalElements
 			)}
