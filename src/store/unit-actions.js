@@ -19,6 +19,23 @@ export const addUnit = (unitData, token) => {
 	};
 };
 
+export const editUnit = (unitId, unitData, token) => {
+	return async (dispatch) => {
+		try {
+			const url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}`;
+			const data = await sendReq(url, {
+				method: 'PATCH',
+				data: unitData,
+				token,
+			});
+			const unit = data.unit;
+			dispatch(unitActions.editUnit({ unitId, unit }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
 export const deleteUnit = (unitId, token) => {
 	return async (dispatch) => {
 		try {
