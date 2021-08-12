@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import useInput from '../../hooks/use-input';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { addUnit } from '../../store/unit-actions';
+import { addUnit, editUnit } from '../../store/unit-actions';
 
 import Input from '../UI/Input';
 import ErrorText from '../UI/ErrorText';
@@ -12,9 +12,9 @@ import ErrorText from '../UI/ErrorText';
 import classes from './AddUnit.module.css';
 import Button from '../UI/Button';
 
-const AddUnit = ({ unit, isEditMode }) => {
+const AddUnit = ({ unit, isEditMode, onHideModal, onEditClick }) => {
 	const [formError, setFormError] = useState(null);
-	const [isPrivate, setIsPrivate] = useState(false);
+	const [isPrivate, setIsPrivate] = useState(unit.private);
 	const token = useSelector((state) => state.auth.token);
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -26,7 +26,7 @@ const AddUnit = ({ unit, isEditMode }) => {
 		reset: nameReset,
 		valueChangeHandler: nameChangeHandler,
 		inputBlurHandler: nameBlurHandler,
-	} = useInput((value) => value.trim() !== '');
+	} = useInput((value) => value.trim() !== '', unit.name);
 	const {
 		value: enteredFromLang,
 		isValid: fromLangIsValid,
@@ -34,7 +34,7 @@ const AddUnit = ({ unit, isEditMode }) => {
 		reset: fromLangReset,
 		valueChangeHandler: fromLangChangeHandler,
 		inputBlurHandler: fromLangBlurHandler,
-	} = useInput((value) => value.trim() !== '');
+	} = useInput((value) => value.trim() !== '', unit.fromLang);
 	const {
 		value: enteredToLang,
 		isValid: toLangIsValid,
@@ -42,7 +42,7 @@ const AddUnit = ({ unit, isEditMode }) => {
 		reset: toLangReset,
 		valueChangeHandler: toLangChangeHandler,
 		inputBlurHandler: toLangBlurHandler,
-	} = useInput((value) => value.trim() !== '');
+	} = useInput((value) => value.trim() !== '', unit.toLang);
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
@@ -62,16 +62,22 @@ const AddUnit = ({ unit, isEditMode }) => {
 		};
 
 		try {
-			await dispatch(addUnit(unitData, token));
-			history.replace('/units');
+			if (isEditMode) {
+				await onEditClick(unitData);
+			} else {
+				await dispatch(addUnit(unitData, token));
+				history.replace('/units');
+			}
 		} catch (err) {
 			setFormError(err.message);
 		}
 	};
 
+	const sectionClass = isEditMode ? 'editUnit' : 'addUnit';
+
 	return (
-		<section className={classes.addUnit}>
-			<h1>Create new unit</h1>
+		<section className={classes[sectionClass]}>
+			<h1>{isEditMode ? 'Edit exist unit' : 'Create new unit'}</h1>
 			{formError && <ErrorText text={formError} />}
 
 			<form onSubmit={submitHandler}>
@@ -118,7 +124,19 @@ const AddUnit = ({ unit, isEditMode }) => {
 					/>
 					<label htmlFor="isPrivate">Private</label>
 				</div>
-				<Button type="submit" text="Add unit" />
+				<div className={classes.actions}>
+					<Button
+						type="submit"
+						text={isEditMode ? 'Edit unit' : 'Add unit'}
+					/>
+					{isEditMode && (
+						<Button
+							onClick={onHideModal}
+							text={'Cancel'}
+							cancel={true}
+						/>
+					)}
+				</div>
 			</form>
 		</section>
 	);
