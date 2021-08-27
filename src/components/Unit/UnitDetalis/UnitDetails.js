@@ -1,51 +1,54 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import DeleteUnit from './DeleteUnit';
 import EditUnit from './EditUnit';
 import useCreator from '../../../hooks/use-creator';
 import Heart from '../../UI/Heart';
+import { sendRequest } from '../../../utils/sendRequest';
 
 import classes from './UnitDetails.module.css';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Words from './Words/Words';
 
 const UnitDetails = ({ unit }) => {
 	const [deleteModalIsShown, setDeleteModalIsShown] = useState(false);
-	const [editModalIsShown, setEditModalIsShown] = useState(false);
 	const isCreator = useCreator(unit.creator);
+	const token = useSelector((state) => state.auth.token);
 	const history = useHistory();
+	const [creator, setCreator] = useState({});
+
+	useEffect(() => {
+		async function fetchData() {
+			const url = `${process.env.REACT_APP_BACKENDURL}/users/${unit.creator}`;
+			const requestObject = {
+				method: 'GET',
+				token: token,
+			};
+			const data = await sendRequest(url, requestObject);
+			const { avatarUrl, email, role, words, ...user } = data.user;
+			setCreator(user);
+		}
+		fetchData();
+	}, [token, unit.creator]);
+
+	const showModalHanlder = () => {
+		setDeleteModalIsShown(true);
+	};
+
+	const hideModalHanlder = () => {
+		setDeleteModalIsShown(false);
+	};
 
 	const editHandler = () => {
-		history.push(`/units/edit/${unit._id}`);
-	};
-
-	const showModalHanlder = (isDeleteModal) => {
-		isDeleteModal ? setDeleteModalIsShown(true) : setEditModalIsShown(true);
-	};
-
-	const hideModalHanlder = (isDeleteModal) => {
-		isDeleteModal
-			? setDeleteModalIsShown(false)
-			: setEditModalIsShown(false);
+		history.push(`/units/edit/${unit._id}`, { unit });
 	};
 
 	return (
 		<div className={classes.wrapper}>
 			{deleteModalIsShown ? (
-				<DeleteUnit
-					onHideModal={() => {
-						hideModalHanlder(true);
-					}}
-					unitId={unit._id}
-				/>
-			) : null}
-			{editModalIsShown ? (
-				<EditUnit
-					onHideModal={() => {
-						hideModalHanlder(false);
-					}}
-					unit={unit}
-				/>
+				<DeleteUnit onHideModal={hideModalHanlder} unitId={unit._id} />
 			) : null}
 			<div className={classes.details}>
 				<div className={classes.titles}>
@@ -57,7 +60,14 @@ const UnitDetails = ({ unit }) => {
 					</div>
 					<div className={classes.detail}>
 						<p>
-							creator: <span>{unit.creator}</span>
+							creator:{' '}
+							<span
+								onClick={() => {
+									history.push(`/users/${creator._id}`);
+								}}
+							>
+								{creator.name}
+							</span>
 						</p>
 						<p>
 							from <span>{unit.fromLang}</span> to{' '}
@@ -71,25 +81,18 @@ const UnitDetails = ({ unit }) => {
 							<FontAwesomeIcon
 								icon={faEdit}
 								color={'var(--orange)'}
-								size={'1x'}
-								onClick={() => {
-									showModalHanlder(false);
-								}}
+								onClick={editHandler}
 							/>
 							<FontAwesomeIcon
 								icon={faTrash}
 								color={'var(--orange)'}
-								size={'1.5x'}
-								onClick={() => {
-									showModalHanlder(true);
-								}}
+								onClick={showModalHanlder}
 							/>
 						</>
 					)}
 				</div>
 			</div>
-
-			<div className={classes.words}></div>
+			<Words isCreator={isCreator} unit={unit} />
 		</div>
 	);
 };

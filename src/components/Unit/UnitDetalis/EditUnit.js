@@ -1,30 +1,19 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { editUnit } from '../../../store/unit-actions';
-import Modal from '../../UI/Modal';
-import AddUnit from '../AddUnit';
+import { useLocation } from 'react-router-dom';
 
-const EditUnit = ({ onHideModal, unit }) => {
-	const token = useSelector((state) => state.auth.token);
-	const dispatch = useDispatch();
-	const history = useHistory();
+import AddUnitForm from '../../UI/Unit/AddUnitForm';
 
-	const editHandler = (unitData) => {
-		const unitId = unit._id;
-		dispatch(editUnit(unitId, unitData, token));
-		history.push('/units');
-	};
+const EditUnit = () => {
+	const { state } = useLocation();
+	const { unit } = state;
 
 	return (
-		<Modal onHideModal={onHideModal}>
-			<AddUnit
-				unit={unit}
-				isEditMode={true}
-				onHideModal={onHideModal}
-				onEditClick={editHandler}
-			/>
-		</Modal>
+		<AddUnitForm
+			title="Edit exist unit"
+			buttonText="Edit unit"
+			isEditMode={true}
+			unit={unit}
+		/>
 	);
 };
 

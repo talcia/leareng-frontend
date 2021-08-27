@@ -6,7 +6,7 @@
 }
 
 .details {
-	max-width: 85%;
+	max-width: 65%;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
@@ -28,6 +28,7 @@
 
 .detail span {
 	color: var(--orange);
+	cursor: pointer;
 }
 
 .actions svg {
