@@ -1,0 +1,35 @@
+.addUnit {
+	margin: 8rem auto;
+	width: 95%;
+	max-width: 35rem;
+	background-color: var(--light-blue);
+	padding: 6rem 1rem;
+	text-align: center;
+}
+
+.addUnit h1 {
+	font-size: 2rem;
+	color: var(--dark-blue);
+	margin-bottom: 3rem;
+}
+
+.checkbox {
+	text-align: left;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.checkbox input {
+	background-color: var(--main-background);
+	margin: 1rem 0.5rem;
+}
+
+.checkbox label {
+	color: var(--dark-blue);
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
