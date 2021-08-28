@@ -1,0 +1,38 @@
+.title,
+.desc,
+.action {
+	text-align: center;
+	margin: 4rem auto;
+	color: var(--dark-blue);
+}
+
+.title h2 {
+	font-size: 3rem;
+}
+
+.title p {
+	margin-top: 0.5rem;
+	font-size: 1.5rem;
+}
+
+.title p span {
+	font-size: 1.5rem;
+	color: var(--orange);
+}
+
+.desc {
+	font-size: 1.5rem;
+	width: 50%;
+}
+
+.action {
+	font-size: 2rem;
+	font-weight: 700;
+	width: 40%;
+	line-height: 3rem;
+}
+
+.action a {
+	color: var(--orange);
+	text-decoration: none;
+}

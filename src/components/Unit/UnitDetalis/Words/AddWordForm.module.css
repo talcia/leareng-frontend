@@ -1,0 +1,17 @@
+.wordForm {
+	background-color: var(--grey);
+	display: flex;
+	justify-content: center;
+	width: 70%;
+}
+
+.wordForm input {
+	text-align: center;
+	background-color: var(--grey);
+	color: black;
+}
+
+button.addWord {
+	background-color: var(--grey);
+	border: 0px solid transparent;
+}

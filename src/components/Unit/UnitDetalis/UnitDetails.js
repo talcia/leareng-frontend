@@ -54,9 +54,7 @@ const UnitDetails = ({ unit }) => {
 				<div className={classes.titles}>
 					<div className={classes.title}>
 						<h1>{unit.name}</h1>
-						<p>
-							<Heart unit={unit} />
-						</p>
+						<Heart unit={unit} />
 					</div>
 					<div className={classes.detail}>
 						<p>

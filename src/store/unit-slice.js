@@ -25,7 +25,6 @@ const unitSlice = createSlice({
 			const index = state.ownUnits.findIndex(
 				(item) => item._id === action.payload.unitId
 			);
-			console.log(index);
 			state.ownUnits[index] = action.payload.unit;
 		},
 		removeUnit(state, action) {
