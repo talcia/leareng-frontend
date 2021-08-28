@@ -1,4 +1,4 @@
-.addUnit {
+.editUnit {
 	margin: 8rem auto;
 	width: 95%;
 	max-width: 35rem;
@@ -7,7 +7,22 @@
 	text-align: center;
 }
 
-.addUnit h1 {
+.editUnit h1 {
+	font-size: 2rem;
+	color: var(--dark-blue);
+	margin-bottom: 3rem;
+}
+
+.editUnit {
+	margin: 2rem auto;
+	width: 95%;
+	max-width: 35rem;
+	background-color: var(--light-blue);
+	padding: 4rem 1rem;
+	text-align: center;
+}
+
+.editUnit h1 {
 	font-size: 2rem;
 	color: var(--dark-blue);
 	margin-bottom: 3rem;
@@ -26,4 +41,10 @@
 
 .checkbox label {
 	color: var(--dark-blue);
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

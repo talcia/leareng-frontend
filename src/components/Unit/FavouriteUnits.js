@@ -1,25 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Unit from './Unit';
-
-import classes from './FavouriteUnits.module.css';
+import Units from '../UI/Unit/Units';
 
 const FavouriteUnits = () => {
 	const units = useSelector((state) => state.unit.favouriteUnits) || [];
-	return (
-		<div className={classes.unitsWrapper}>
-			{units && (
-				<p className={classes.errorText}>
-					You haven't liked any unit yet
-				</p>
-			)}
-			<ul className={'units'}>
-				{units.map((unit) => (
-					<Unit unit={unit} />
-				))}
-			</ul>
-		</div>
-	);
+	console.log(units);
+	return <Units units={units} errorText={"You haven't liked any unit yet"} />;
 };
 
 export default FavouriteUnits;

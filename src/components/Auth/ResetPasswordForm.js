@@ -8,6 +8,7 @@ import ErrorText from '../UI/ErrorText';
 import Button from '../UI/Button';
 
 import classes from './ResetPasswordForm.module.css';
+import { sendRequest } from '../../utils/sendRequest';
 
 const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 	const [formError, setFormError] = useState(null);
@@ -51,17 +52,14 @@ const ResetPasswordForm = ({ setIsEmailWasSent }) => {
 			password: enteredPassword,
 		};
 
+		const url = `${process.env.REACT_APP_BACKENDURL}/auth/resetPassword`;
+		const requestObject = {
+			method: 'POST',
+			data: passwordData,
+		};
+
 		try {
-			await fetch(
-				`${process.env.REACT_APP_BACKENDURL}/auth/resetPassword/${token}`,
-				{
-					method: 'POST',
-					body: JSON.stringify(passwordData),
-					headers: {
-						'Content-Type': 'application/json',
-					},
-				}
-			);
+			await sendRequest(url, requestObject);
 			setIsEmailWasSent(true);
 			passwordReset();
 			confirmPasswordReset();

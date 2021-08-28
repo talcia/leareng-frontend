@@ -22,18 +22,19 @@ const unitSlice = createSlice({
 			state.favouriteUnits.push(action.payload.unit);
 		},
 		editUnit(state, action) {
-			const index = state.unit.findIndex(
-				(item) => item.id === action.payload.unit.id
+			const index = state.ownUnits.findIndex(
+				(item) => item._id === action.payload.unitId
 			);
-			state.unit[index] = action.payload.unit;
+			console.log(index);
+			state.ownUnits[index] = action.payload.unit;
 		},
 		removeUnit(state, action) {
-			state.unit = state.unit.filter(
-				(item) => item.id !== action.payload.unitId
+			state.ownUnits = state.ownUnits.filter(
+				(item) => item._id !== action.payload.unitId
 			);
 		},
 		removeUnitFromFavourite(state, action) {
-			state.unit = state.unit.filter(
+			state.ownUnits = state.ownUnits.filter(
 				(item) => item.id !== action.payload.unitId
 			);
 		},

@@ -1,0 +1,7 @@
+.heart svg {
+	cursor: pointer;
+}
+
+.ownHeart svg {
+	cursor: auto;
+}
