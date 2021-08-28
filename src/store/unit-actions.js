@@ -85,6 +85,49 @@ export const fetchFavouriteUnits = (token) => {
 	};
 };
 
+export const addWord = (unitId, wordData, token) => {
+	return async (dispatch) => {
+		try {
+			let url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}/words`;
+			await sendReq(url, {
+				method: 'POST',
+				data: wordData,
+				token,
+			});
+			url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}`;
+			const data = await sendReq(url, {
+				method: 'GET',
+				token,
+			});
+			const unit = data.unit;
+			dispatch(unitActions.editUnit({ unitId, unit }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
+export const deleteWord = (unitId, wordId, token) => {
+	return async (dispatch) => {
+		try {
+			let url = `${process.env.REACT_APP_BACKENDURL}/words/${wordId}`;
+			await sendReq(url, {
+				method: 'DELETE',
+				token,
+			});
+			url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}`;
+			const data = await sendReq(url, {
+				method: 'GET',
+				token,
+			});
+			const unit = data.unit;
+			dispatch(unitActions.editUnit({ unitId, unit }));
+		} catch (err) {
+			throw err;
+		}
+	};
+};
+
 const sendReq = async (url, requestObject) => {
 	const errorMessage = {
 		422: 'Provided email or password is invalid',
