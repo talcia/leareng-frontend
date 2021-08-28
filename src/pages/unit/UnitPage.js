@@ -5,6 +5,7 @@ import AddUnit from '../../components/Unit/AddUnit';
 import OwnUnits from '../../components/Unit/OwnUnits';
 import FavouriteUnits from '../../components/Unit/FavouriteUnits';
 import UnitsDetailsPage from './UnitsDetailsPage';
+import EditUnit from '../../components/Unit/UnitDetalis/EditUnit';
 
 const unitNavigationParams = {
 	yourUnits: {
@@ -14,6 +15,10 @@ const unitNavigationParams = {
 	addUnit: {
 		title: 'Add Unit',
 		text: 'Here you can add new unit',
+	},
+	editUnit: {
+		title: 'Edit Unit',
+		text: 'Here you change details of your unit',
 	},
 	favouriteUnits: {
 		title: 'Your favourites Units',
@@ -35,6 +40,10 @@ const Unit = () => {
 			<Route path="/units/add" exact>
 				<UnitNavigation {...unitNavigationParams.addUnit} />
 				<AddUnit />
+			</Route>
+			<Route path="/units/edit/:unitId" exact>
+				<UnitNavigation {...unitNavigationParams.editUnit} />
+				<EditUnit />
 			</Route>
 			<Route path="/units/favourite" exact>
 				<UnitNavigation {...unitNavigationParams.favouriteUnits} />

@@ -33,3 +33,8 @@
 	flex-direction: column;
 	align-items: center;
 }
+
+button.cancel {
+	background-color: var(--main-background);
+	color: rgb(122, 119, 119);
+}

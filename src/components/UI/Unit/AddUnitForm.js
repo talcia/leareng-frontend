@@ -74,6 +74,10 @@ const AddUnitForm = ({ title, buttonText, isEditMode, unit }) => {
 		}
 	};
 
+	const onCancelHandler = () => {
+		history.goBack();
+	};
+
 	return (
 		<section className={classes.addUnit}>
 			<h1>{title}</h1>
@@ -125,6 +129,13 @@ const AddUnitForm = ({ title, buttonText, isEditMode, unit }) => {
 				</div>
 				<div className={classes.actions}>
 					<Button type="submit" text={buttonText} />
+					{isEditMode && (
+						<Button
+							text="Cancel"
+							cancel={true}
+							onClick={onCancelHandler}
+						/>
+					)}
 				</div>
 			</form>
 		</section>
