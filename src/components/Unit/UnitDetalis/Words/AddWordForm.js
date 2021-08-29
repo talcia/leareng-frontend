@@ -47,6 +47,7 @@ const AddWordForm = ({ fromLang, toLang, setFormError, addWordHandler }) => {
 
 	return (
 		<form onSubmit={addWord} className={classes.wordForm}>
+			<p></p>
 			<Input
 				type="text"
 				id="word"

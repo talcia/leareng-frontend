@@ -4,8 +4,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	text-align: center;
 }
 
 .words table {
@@ -13,6 +11,42 @@
 	background-color: var(--main-background);
 }
 
-.words thead tr th {
+table {
+	border-spacing: 0;
+}
+
+.words .title tbody tr {
+	font-weight: bold;
+	background-color: var(--main-background);
+}
+
+tbody > tr > :nth-child(1) {
+	width: 10%;
+}
+
+tbody > tr > :nth-child(2) {
+	width: 43%;
+}
+
+tbody > tr > :nth-child(3) {
+	width: 43%;
+}
+
+tbody > :nth-child(odd) {
+	background-color: var(--light-grey);
+}
+
+tbody {
+	color: var(--dark-blue);
+}
+
+.words table thead {
+	font-weight: bold;
+	color: var(--dark-blue);
+	width: 100%;
+}
+
+.words td {
 	padding: 1rem 0;
+	text-align: center;
 }
