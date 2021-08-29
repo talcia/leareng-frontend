@@ -75,7 +75,7 @@ const AddUnitForm = ({ title, buttonText, isEditMode, unit }) => {
 	};
 
 	const onCancelHandler = () => {
-		history.goBack();
+		history.push(`/units/${unit._id}`);
 	};
 
 	return (
