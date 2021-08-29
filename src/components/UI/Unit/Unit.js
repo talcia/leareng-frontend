@@ -1,6 +1,9 @@
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import useCreator from '../../../hooks/use-creator';
 import Button from '../Button';
 import Heart from '../Heart';
 
@@ -8,8 +11,16 @@ import classes from './Unit.module.css';
 
 const Unit = ({ unit }) => {
 	const numbersOfWords = unit.words.length || 0;
+	const isCreator = useCreator(unit.creator);
+
 	return (
 		<div className={classes.unit}>
+			<p className={classes.owner}>
+				{isCreator && (
+					<FontAwesomeIcon icon={faPen} color={'var(--orange)'} />
+				)}
+			</p>
+
 			<Link className={classes.title} to={`/units/${unit._id}`}>
 				{unit.name}
 			</Link>
