@@ -12,5 +12,5 @@ button {
 .cancel {
 	background-color: var(--main-background);
 	border: 1px solid var(--main-background);
-	color: rgb(122, 119, 119);
+	color: var(--grey);
 }
