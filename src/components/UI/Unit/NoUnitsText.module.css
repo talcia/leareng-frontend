@@ -1,0 +1,13 @@
+.noUnit {
+	width: 50%;
+	text-align: center;
+	margin: 10rem auto;
+	font-size: 1.7rem;
+	color: var(--dark-blue);
+	font-weight: bold;
+}
+
+.noUnit a {
+	color: var(--orange);
+	text-decoration: none;
+}
