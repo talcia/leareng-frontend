@@ -48,9 +48,19 @@ const Words = ({ isCreator, unit }) => {
 	const addWordHandler = async (e, wordData) => {
 		e.preventDefault();
 		try {
-			await dispatch(addWord(unitId, wordData, token));
+			const word = await dispatch(addWord(unitId, wordData, token));
 			const wordsList = [...words];
-			wordsList.unshift(wordData);
+			const {
+				createdAt,
+				creator,
+				difficulty,
+				unit,
+				updatedAt,
+				__v,
+				...shortWord
+			} = word;
+			console.log(word);
+			wordsList.unshift(shortWord);
 			setWords(wordsList);
 		} catch (err) {
 			setFormError(err.message);
@@ -72,14 +82,14 @@ const Words = ({ isCreator, unit }) => {
 	return (
 		<div className={classes.words}>
 			{formError && <ErrorText text={formError} />}
-			<table>
-				<thead>
+			<table className={classes.title}>
+				<tbody>
 					<tr>
-						<th></th>
-						<th>Word</th>
-						<th>Translation</th>
+						<td>No</td>
+						<td>Word</td>
+						<td>Translation</td>
 					</tr>
-				</thead>
+				</tbody>
 			</table>
 			{isCreator && (
 				<AddWordForm
@@ -94,12 +104,13 @@ const Words = ({ isCreator, unit }) => {
 			<table>
 				<tbody>
 					{words.length ? (
-						words.map((word) => (
+						words.map((word, index) => (
 							<Word
+								index={index}
 								word={word}
 								isCreator={isCreator}
 								deleteWordHandler={deleteWordHandler}
-								key={word._id || new Date().valueOf()}
+								key={word._id}
 							/>
 						))
 					) : (

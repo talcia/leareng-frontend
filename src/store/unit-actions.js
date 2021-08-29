@@ -89,7 +89,7 @@ export const addWord = (unitId, wordData, token) => {
 	return async (dispatch) => {
 		try {
 			let url = `${process.env.REACT_APP_BACKENDURL}/units/${unitId}/words`;
-			await sendReq(url, {
+			const { word } = await sendReq(url, {
 				method: 'POST',
 				data: wordData,
 				token,
@@ -101,6 +101,7 @@ export const addWord = (unitId, wordData, token) => {
 			});
 			const unit = data.unit;
 			dispatch(unitActions.editUnit({ unitId, unit }));
+			return word;
 		} catch (err) {
 			throw err;
 		}
