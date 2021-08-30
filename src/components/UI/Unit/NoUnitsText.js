@@ -7,7 +7,7 @@ const NoUnitsText = ({ text, linkText, link }) => {
 	return (
 		<div className={classes.noUnit}>
 			<p>
-				{text} <Link to={link}>{linkText}</Link>
+				{text} {link && <Link to={link}>{linkText}</Link>}
 			</p>
 		</div>
 	);
