@@ -27,7 +27,10 @@ const MainNavigation = () => {
 					{isAuth && (
 						<>
 							<li>
-								<Link to="/units">Add Unit</Link>
+								<Link to="/units">Units</Link>
+							</li>
+							<li>
+								<Link to="/">Account</Link>
 							</li>
 							<li>
 								<Link

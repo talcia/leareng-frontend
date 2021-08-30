@@ -15,10 +15,7 @@ const FavouriteUnits = () => {
 					link={'/'}
 				/>
 			) : (
-				<Units
-					units={units}
-					errorText={"You haven't liked any unit yet"}
-				/>
+				<Units units={units} />
 			)}
 		</div>
 	);

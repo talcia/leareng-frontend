@@ -1,0 +1,16 @@
+.search {
+	width: 40%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.search button {
+	width: auto;
+	margin: 0;
+}
+
+.search input {
+	border-bottom: 2px solid var(--orange);
+}

@@ -13,7 +13,7 @@ const UnitNavigation = (props) => {
 				</div>
 				<ul>
 					<li>
-						<Link to="/units">Your units</Link>
+						<Link to="/units">My units</Link>
 					</li>
 
 					<li>

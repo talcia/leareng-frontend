@@ -28,3 +28,8 @@ input:-webkit-autofill:active {
 	font-size: 0.8rem;
 	margin: 0.2rem;
 }
+
+input:focus {
+	outline: none !important;
+	border: 1px solid var(--light-grey);
+}
