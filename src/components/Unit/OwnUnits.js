@@ -16,10 +16,7 @@ const OwnUnits = () => {
 					link={'/units/add'}
 				/>
 			) : (
-				<Units
-					units={units}
-					errorText={"You haven't added any unit yet"}
-				/>
+				<Units units={units} />
 			)}
 		</div>
 	);
