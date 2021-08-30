@@ -16,6 +16,7 @@ import { useDispatch } from 'react-redux';
 import { getTokenFromLocalStorage } from './store/auth-actions';
 import { fetchOwnUnits, fetchFavouriteUnits } from './store/unit-actions';
 import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
+import SearchPage from './pages/unit/SearchPage';
 require('dotenv').config();
 
 function App() {
@@ -65,9 +66,14 @@ function App() {
 					<SendConfirmEmailPage />
 				</Route>
 				{isAuth && (
-					<Route path="/units">
-						<UnitPage />
-					</Route>
+					<>
+						<Route path="/units">
+							<UnitPage />
+						</Route>
+						<Route path="/units/search">
+							<SearchPage />
+						</Route>
+					</>
 				)}
 			</Switch>
 		</Layout>
