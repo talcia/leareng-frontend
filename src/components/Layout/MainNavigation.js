@@ -11,6 +11,7 @@ import classes from './MainNavigation.module.css';
 const MainNavigation = () => {
 	const dispatch = useDispatch();
 	const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
 	return (
 		<header className={classes.header}>
 			<Link to="/">

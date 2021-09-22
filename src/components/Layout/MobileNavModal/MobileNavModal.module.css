@@ -1,0 +1,67 @@
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 20;
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0%;
+	width: 65%;
+	height: 100%;
+	background-color: white;
+	padding: 1rem;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+	z-index: 30;
+	animation: slide 300ms ease-out forwards;
+}
+
+.mobileNav {
+	padding-left: 1rem;
+}
+
+.logo {
+	font-size: 2rem;
+	color: var(--orange);
+	margin-bottom: 4rem;
+}
+
+.mobileNav a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.mobileNav nav ul li {
+	list-style: none;
+	margin-top: 2rem;
+	font-size: 1.3rem;
+}
+
+.mobileNav nav ul li:nth-child(3) {
+	margin-top: 6rem;
+}
+
+.mobileNav nav a {
+	color: var(--dark-blue);
+}
+
+@media (min-width: 768px) {
+	.modal {
+		width: 40rem;
+		left: calc(50% - 20rem);
+	}
+}
+
+@keyframes slide {
+	from {
+		transform: translateX(-8rem);
+	}
+	to {
+		transform: translateX(0);
+	}
+}

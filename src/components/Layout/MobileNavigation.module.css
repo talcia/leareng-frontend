@@ -19,3 +19,12 @@
 	font-weight: bold;
 	color: var(--dark-blue);
 }
+
+.header svg {
+	font-size: 1.5rem;
+	color: var(--dark-blue);
+}
+
+.nav {
+	height: 100%;
+}
