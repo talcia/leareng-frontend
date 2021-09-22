@@ -10,10 +10,6 @@ export const sendRequest = async (url, requestObject, errorMessage) => {
 	const data = await response.json();
 	if (response.status !== 200 && response.status !== 201) {
 		if (data.status !== 200 && data.status !== 201) {
-<<<<<<< HEAD
-=======
-			console.log('nie pasuje');
->>>>>>> 482afb17d297c316f1701baae2c7a282e33cce35
 			if (data.status === 422 && errorMessage[data.status]) {
 				throw new Error(errorMessage[data.status]);
 			}

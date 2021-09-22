@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import DeleteUnit from './DeleteUnit';
-import EditUnit from './EditUnit';
 import useCreator from '../../../hooks/use-creator';
 import Heart from '../../UI/Heart';
 import { sendRequest } from '../../../utils/sendRequest';
