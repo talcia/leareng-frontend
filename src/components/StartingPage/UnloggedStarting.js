@@ -11,7 +11,7 @@ const UnloggedStarting = () => {
 				title="Check the most popular units or create your own"
 				text={
 					<>
-						get max points of each unit and become
+						get max points of each unit and become{' '}
 						<span>language master</span>
 					</>
 				}

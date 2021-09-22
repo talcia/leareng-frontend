@@ -26,7 +26,7 @@
 }
 
 .action {
-	font-size: 2rem;
+	font-size: 1.8rem;
 	font-weight: 700;
 	width: 40%;
 	line-height: 3rem;
@@ -35,4 +35,33 @@
 .action a {
 	color: var(--orange);
 	text-decoration: none;
+}
+
+@media (max-width: 600px) {
+	.action {
+		width: 90%;
+		font-size: 1.5rem;
+	}
+
+	.titleText {
+		width: 90%;
+	}
+}
+
+@media (min-width: 600px) {
+	.action {
+		width: 60%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.action {
+		width: 55%;
+	}
+}
+
+@media (min-width: 1500px) {
+	.action {
+		width: 50%;
+	}
 }

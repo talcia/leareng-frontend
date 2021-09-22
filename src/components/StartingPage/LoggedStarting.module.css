@@ -1,18 +1,3 @@
-.search {
-	width: 40%;
-	margin: 0 auto;
-	text-align: center;
-	display: flex;
-	flex-basis: auto;
-	align-items: center;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-
-.search .title {
-	width: 100%;
-}
-
-.search button {
-	max-width: 30%;
+.clickable {
+	cursor: pointer;
 }
