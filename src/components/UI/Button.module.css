@@ -3,7 +3,7 @@ button {
 	cursor: pointer;
 	background-color: var(--orange);
 	border: 1px solid var(--orange);
-	width: 50%;
+	width: max(50%, 230px);
 	padding: 0.5rem 1rem;
 	color: var(--main-background);
 	font-size: 1.2rem;

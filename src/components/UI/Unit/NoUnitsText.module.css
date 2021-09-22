@@ -11,3 +11,9 @@
 	color: var(--orange);
 	text-decoration: none;
 }
+
+@media (max-width: 768px) {
+	.noUnit {
+		margin: 5rem auto;
+	}
+}

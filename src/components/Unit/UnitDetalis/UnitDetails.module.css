@@ -1,13 +1,13 @@
 .wrapper {
-	max-width: 70%;
-	margin: 4rem auto;
+	max-width: 100%;
+	margin: 8rem auto;
 	background-color: var(--light-blue);
 	padding: 1rem 3rem;
 }
 
 .details {
 	max-width: 65%;
-	margin: 0 auto;
+	margin: 2rem auto;
 	display: flex;
 	justify-content: space-between;
 }
@@ -34,4 +34,45 @@
 .actions svg {
 	margin: 0.5rem;
 	cursor: pointer;
+}
+
+@media (max-width: 1500px) {
+	.wrapper {
+		padding: 1rem 2rem;
+	}
+}
+
+@media (max-width: 1124px) {
+	.wrapper {
+		margin-top: 12rem;
+		padding: 1rem 1rem;
+	}
+
+	.details {
+		max-width: 75%;
+	}
+}
+
+@media (max-width: 992px) {
+	.details {
+		max-width: 80%;
+	}
+}
+
+@media (max-width: 768px) {
+	.details {
+		max-width: 85%;
+	}
+}
+
+@media (max-width: 600px) {
+	.details {
+		max-width: 100%;
+	}
+
+	.actions {
+		/* display: flex;
+		flex-direction: column;
+		justify-content: space-between; */
+	}
 }
