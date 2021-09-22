@@ -15,6 +15,18 @@ export const sendRequest = async (url, requestObject, errorMessage) => {
 		throw new Error(errorMessage[data.status]);
 	}
 	if (response.status !== 200 && response.status !== 201) {
+		if (data.status !== 200 && data.status !== 201) {
+			if (data.status === 422 && errorMessage[data.status]) {
+				throw new Error(errorMessage[data.status]);
+			}
+			if (data.status === 401 && errorMessage[data.status]) {
+				throw new Error(errorMessage[data.status]);
+			}
+			if (data.status === 404 && errorMessage[data.status]) {
+				throw new Error(errorMessage[data.status]);
+			}
+			throw new Error(data.data[0].msg);
+		}
 		throw new Error('Something went wrong');
 	}
 	return data;

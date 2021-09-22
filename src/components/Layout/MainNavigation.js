@@ -12,6 +12,8 @@ import classes from './MainNavigation.module.css';
 const MainNavigation = () => {
 	const dispatch = useDispatch();
 	const isAuth = useSelector((state) => state.auth.isAuthenticated);
+	const userId = useSelector((state) => state.auth.userId);
+
 	return (
 		<header className={classes.header}>
 			<Link to="/">
@@ -27,7 +29,10 @@ const MainNavigation = () => {
 					{isAuth && (
 						<>
 							<li>
-								<Link to="/units">Add Unit</Link>
+								<Link to="/units">Units</Link>
+							</li>
+							<li>
+								<Link to={`/user/${userId}`}>Account</Link>
 							</li>
 							<li>
 								<Link
