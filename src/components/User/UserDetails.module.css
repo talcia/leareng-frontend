@@ -1,0 +1,55 @@
+.detailsTitle {
+	margin: 5rem 0;
+}
+
+.wrapper {
+	max-width: 80%;
+	margin: 8rem auto;
+	background-color: var(--light-blue);
+	padding: 1rem 3rem;
+}
+
+.userDetails {
+	font-size: 1.3rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.userDetails p {
+	color: var(--dark-blue);
+	margin-bottom: 2rem;
+}
+
+.avatar {
+	width: 100px;
+	height: 100px;
+	margin: 2rem auto;
+	border-radius: 50%;
+	background-color: var(--orange);
+}
+
+.userDetails .userUnits {
+	width: 80%;
+	margin: 6rem auto;
+}
+
+.userUnits {
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.userUnits p.createdUnits {
+	font-size: 1.4rem;
+	color: var(--dark-blue);
+	font-weight: bold;
+}
+
+.userUnits .createdUnits p {
+	font-size: 1.4rem;
+}
+
+@media (max-width: 600px) {
+	.userDetails {
+		font-size: 1rem;
+	}
+}
