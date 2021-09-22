@@ -34,37 +34,35 @@ const LoggedStarting = () => {
 		<>
 			<TitleText
 				title="Check the most popular units from all users"
+				// text={
+				// 	<>
+				// 		get max points of each unit and become{' '}
+				// 		<span>language master</span>
+				// 	</>
+				// }
 				text={
 					<>
-						get max points of each unit and become{' '}
-						<span>language master</span>
+						To find specific unit faster you can search by{' '}
+						<span
+							className={classes.clickable}
+							onClick={() => {
+								onClickHandler('/units/search/word');
+							}}
+						>
+							key words
+						</span>{' '}
+						or by{' '}
+						<span
+							className={classes.clickable}
+							onClick={() => {
+								onClickHandler('/units/search/lang');
+							}}
+						>
+							language
+						</span>
 					</>
 				}
 			/>
-			<div className={classes.search}>
-				<div className={classes.title}>
-					<TitleText
-						text={
-							<>
-								To find specific unit faster you can search by
-								key words or by language
-							</>
-						}
-					/>
-				</div>
-				<Button
-					text="Search by word"
-					onClick={() => {
-						onClickHandler('/units/search/word');
-					}}
-				/>
-				<Button
-					text="Search by lang"
-					onClick={() => {
-						onClickHandler('/units/search/lang');
-					}}
-				/>
-			</div>
 			<Units units={units} />
 		</>
 	);

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import { authActions } from '../../store/auth-slice';
 import { logoutUser } from '../../store/auth-actions';
 
 import classes from './MainNavigation.module.css';

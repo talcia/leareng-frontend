@@ -1,15 +1,11 @@
 .wordForm {
 	background-color: var(--light-blue);
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	width: 70%;
-	flex: 0 1 1 0;
-	margin: 0;
 }
 
 .wordForm p {
-	width: 15%;
+	width: 10%;
 }
 
 .wordForm input {
@@ -31,4 +27,28 @@ button.addWord {
 
 button.addWord svg {
 	margin: 0 0 0.2rem 0.5rem;
+}
+
+@media (max-width: 1500px) {
+	.wordForm {
+		width: 90%;
+	}
+}
+
+@media (max-width: 1124px) {
+	.wordForm {
+		width: 80%;
+	}
+}
+
+@media (max-width: 992px) {
+	.wordForm {
+		width: 80%;
+	}
+}
+
+@media (max-width: 600px) {
+	.wordForm {
+		width: 90%;
+	}
 }

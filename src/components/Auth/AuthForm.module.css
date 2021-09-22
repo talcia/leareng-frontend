@@ -26,12 +26,32 @@
 }
 
 .frgtPass {
-	width: 50%;
-	margin: 0 auto;
+	width: max(50%, 230px);
+	margin: 1rem auto;
 	text-align: right;
 }
 
 .frgtPass a {
 	text-decoration: none;
 	color: var(--orange);
+}
+
+@media (max-width: 768px) {
+	.auth {
+		padding: 3rem 0rem;
+	}
+
+	.auth h1 {
+		font-size: 1.7rem;
+		margin-bottom: 2rem;
+	}
+
+	.auth p {
+		margin: 1rem 2rem 3rem;
+		line-height: 1.5rem;
+	}
+
+	.auth button {
+		width: max(50%, 230px);
+	}
 }

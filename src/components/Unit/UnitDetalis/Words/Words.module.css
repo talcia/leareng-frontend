@@ -50,3 +50,32 @@ tbody {
 	padding: 1rem 0;
 	text-align: center;
 }
+
+@media (max-width: 1500px) {
+	.words table {
+		width: 90%;
+	}
+}
+
+@media (max-width: 1124px) {
+	.words table {
+		width: 80%;
+	}
+}
+
+@media (max-width: 992px) {
+	.words {
+		padding: 2rem 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.words {
+		width: 100%;
+		font-size: 0.9rem;
+	}
+
+	.words table {
+		width: 100%;
+	}
+}

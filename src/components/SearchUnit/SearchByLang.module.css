@@ -1,5 +1,5 @@
 .searchLang {
-	margin: 0 auto;
+	margin: 0 auto 3rem;
 	display: flex;
 	width: 50%;
 	align-items: center;
@@ -8,11 +8,18 @@
 
 .searchLang div {
 	width: 8rem;
-	margin: 0 0.5rem;
+	margin: 0.5rem 0.5rem;
 }
 
 .searchLang button {
 	width: auto;
 	margin: 0;
 	font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+	.searchLang {
+		width: 80%;
+		flex-wrap: wrap;
+	}
 }
