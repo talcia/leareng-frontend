@@ -59,7 +59,6 @@ const Words = ({ isCreator, unit }) => {
 				__v,
 				...shortWord
 			} = word;
-			console.log(word);
 			wordsList.unshift(shortWord);
 			setWords(wordsList);
 		} catch (err) {
@@ -72,7 +71,7 @@ const Words = ({ isCreator, unit }) => {
 			await dispatch(deleteWord(unitId, wordId, token));
 			let wordsList = [...words];
 			wordsList = wordsList.filter((word) => word._id !== wordId);
-			console.log(wordsList);
+
 			setWords(wordsList);
 		} catch (err) {
 			setFormError(err.message);
@@ -88,6 +87,7 @@ const Words = ({ isCreator, unit }) => {
 						<td>No</td>
 						<td>Word</td>
 						<td>Translation</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>

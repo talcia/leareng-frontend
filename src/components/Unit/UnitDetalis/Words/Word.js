@@ -12,8 +12,8 @@ const Word = ({ index, word, isCreator, deleteWordHandler }) => {
 	return (
 		<tr className={classes.word}>
 			<td>{index + 1}</td>
-			<td>{word.word}</td>
-			<td>{word.translation}</td>
+			<td>{word.word.join(', ')}</td>
+			<td>{word.translation.join(', ')}</td>
 			{isCreator && (
 				<td>
 					<FontAwesomeIcon
