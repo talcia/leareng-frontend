@@ -1,21 +1,18 @@
 import { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import Layout from './components/Layout/Layout';
-import AuthPage from './pages/auth/AuthPage';
-import HomePage from './pages/HomePage';
-import UnitPage from './pages/unit/UnitPage';
-import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
-import ResetPasswordPage from './pages/auth/ResetPasswordPage';
-import SendConfirmEmailPage from './pages/auth/SendConfirmEmailPage';
-import AccountCreatedPage from './pages/auth/AccountCreatedPage';
-
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
+import Layout from './components/Layout/Layout';
+import HomePage from './pages/HomePage';
 import { getTokenFromLocalStorage } from './store/auth-actions';
 import { fetchOwnUnits, fetchFavouriteUnits } from './store/unit-actions';
-import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
+import AuthIndex from './pages/auth/AuthIndex';
+import UnitIndex from './pages/unit/UnitIndex';
+import UserIndex from './pages/user/UserIndex';
+
+import Container from './components/UI/Container';
+
 require('dotenv').config();
 
 function App() {
@@ -39,37 +36,17 @@ function App() {
 
 	return (
 		<Layout>
-			<Switch>
-				<Route path="/" exact>
-					<HomePage />
-				</Route>
-				<Route path="/auth/login" exact>
-					<AuthPage isLoginPage={true} />
-				</Route>
-				<Route path="/auth/signup" exact>
-					<AuthPage isLoginPage={false} />
-				</Route>
-				<Route path="/auth/account-created" exact>
-					<AccountCreatedPage />
-				</Route>
-				<Route path="/auth/forgot-password" exact>
-					<ForgotPasswordPage />
-				</Route>
-				<Route path="/auth/reset-password/:token">
-					<ResetPasswordPage />
-				</Route>
-				<Route path="/auth/confirm-email/:token">
-					<ConfirmEmailPage />
-				</Route>
-				<Route path="/auth/send-confirm-email">
-					<SendConfirmEmailPage />
-				</Route>
-				{isAuth && (
-					<Route path="/units">
-						<UnitPage />
+			<Container>
+				<Switch>
+					<Route path="/" exact>
+						<HomePage />
 					</Route>
-				)}
-			</Switch>
+				</Switch>
+
+				<AuthIndex />
+				<UnitIndex />
+				<UserIndex />
+			</Container>
 		</Layout>
 	);
 }

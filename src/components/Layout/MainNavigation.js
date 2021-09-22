@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import { authActions } from '../../store/auth-slice';
 import { logoutUser } from '../../store/auth-actions';
 
 import classes from './MainNavigation.module.css';
@@ -32,7 +31,11 @@ const MainNavigation = () => {
 								<Link to="/units">Units</Link>
 							</li>
 							<li>
+<<<<<<< HEAD
 								<Link to={`/user/${userId}`}>Account</Link>
+=======
+								<Link to="/">Account</Link>
+>>>>>>> 482afb17d297c316f1701baae2c7a282e33cce35
 							</li>
 							<li>
 								<Link

@@ -3,7 +3,7 @@
 	width: 95%;
 	max-width: 35rem;
 	background-color: var(--light-blue);
-	padding: 6rem 1rem;
+	padding: 4rem 1rem;
 	text-align: center;
 }
 
@@ -37,4 +37,36 @@
 button.cancel {
 	background-color: var(--main-background);
 	color: rgb(122, 119, 119);
+}
+
+@media (max-width: 1124px) {
+	.addUnit {
+		margin-top: 10rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.addUnit {
+		margin-top: 12rem;
+	}
+
+	.addUnit h1 {
+		font-size: 1.7rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.addUnit input,
+	.addUnit button {
+		width: 90%;
+	}
+
+	.addUnit h1 {
+		font-size: 1.5rem;
+	}
+
+	.checkbox input {
+		width: 30px;
+		text-align: right;
+	}
 }

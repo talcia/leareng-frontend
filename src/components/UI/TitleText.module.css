@@ -1,0 +1,44 @@
+.title {
+	width: 80%;
+	text-align: center;
+	margin: 4rem auto;
+	color: var(--dark-blue);
+}
+
+.title h2 {
+	font-size: 3rem;
+}
+
+.title p {
+	margin: 1.5rem auto 0;
+	font-size: 1.5rem;
+}
+
+.title p span {
+	font-size: 1.5rem;
+	color: var(--orange);
+}
+
+.title p a {
+	color: var(--orange);
+	text-decoration: none;
+}
+
+@media (max-width: 600px) {
+	.title {
+		width: 100%;
+		padding: 0 1rem;
+		margin: 4rem auto 2rem;
+	}
+	.title h2 {
+		font-size: 2.4rem;
+		line-height: 3rem;
+	}
+
+	.title p,
+	.title p span {
+		font-size: 1.25rem;
+		line-height: 2rem;
+		width: 90%;
+	}
+}

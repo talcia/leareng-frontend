@@ -1,5 +1,5 @@
 .input {
-	width: 50%;
+	width: max(50%, 230px);
 	margin: 1rem auto 0.5rem;
 }
 
@@ -27,4 +27,9 @@ input:-webkit-autofill:active {
 	text-align: left;
 	font-size: 0.8rem;
 	margin: 0.2rem;
+}
+
+input:focus {
+	outline: none !important;
+	border: 1px solid var(--light-grey);
 }

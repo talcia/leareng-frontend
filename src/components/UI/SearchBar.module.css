@@ -1,0 +1,17 @@
+.search {
+	width: max(50%, 230px);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.search input {
+	border-bottom: 2px solid var(--orange);
+}
+
+@media (max-width: 600px) {
+	.search {
+		margin: 0 auto 2rem;
+	}
+}

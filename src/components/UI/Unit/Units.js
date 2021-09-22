@@ -3,11 +3,10 @@ import Unit from './Unit';
 
 import classes from './Units.module.css';
 
-const Units = ({ units, errorText }) => {
+const Units = ({ units }) => {
 	return (
 		<div className={classes.unitsWrapper}>
 			<ul className={classes.units}>
-				{!units && <p>{errorText}</p>}
 				{units.map((unit) => (
 					<Unit unit={unit} key={unit._id} />
 				))}

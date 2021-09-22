@@ -33,8 +33,8 @@ const AddWordForm = ({ fromLang, toLang, setFormError, addWordHandler }) => {
 		}
 
 		const wordData = {
-			word: enteredWord,
-			translation: enteredTranslation,
+			word: enteredWord.trim().split(','),
+			translation: enteredTranslation.trim().split(','),
 			fromLang,
 			toLang,
 		};
@@ -57,6 +57,7 @@ const AddWordForm = ({ fromLang, toLang, setFormError, addWordHandler }) => {
 				onBlur={wordBlurHandler}
 				hasError={wordHasError}
 				errorText={''}
+				style={{ maxWidth: '38%' }}
 			/>
 			<Input
 				type="text"
@@ -67,6 +68,7 @@ const AddWordForm = ({ fromLang, toLang, setFormError, addWordHandler }) => {
 				onBlur={translationBlurHandler}
 				hasError={translationHasError}
 				errorText={''}
+				style={{ maxWidth: '38%' }}
 			/>
 			<button type="submit" className={classes.addWord}>
 				<FontAwesomeIcon icon={faPlusCircle} color={'var(--orange)'} />
