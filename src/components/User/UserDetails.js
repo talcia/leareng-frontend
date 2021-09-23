@@ -19,7 +19,6 @@ const UserDetails = ({ user }) => {
 		async function fetchData() {
 			const data = await sendRequest(url, requestObject);
 			setUnits(data.user.units);
-			console.log(data.user.units);
 		}
 		fetchData();
 	}, [user._id, token]);

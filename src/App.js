@@ -10,6 +10,7 @@ import { fetchOwnUnits, fetchFavouriteUnits } from './store/unit-actions';
 import AuthIndex from './pages/auth/AuthIndex';
 import UnitIndex from './pages/unit/UnitIndex';
 import UserIndex from './pages/user/UserIndex';
+import AccountIndex from './pages/account/AccountIndex';
 
 import Container from './components/UI/Container';
 
@@ -46,6 +47,7 @@ function App() {
 				<AuthIndex />
 				<UnitIndex />
 				<UserIndex />
+				<AccountIndex />
 			</Container>
 		</Layout>
 	);
