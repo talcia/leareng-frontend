@@ -1,7 +1,7 @@
 .wrapper {
 	background-color: var(--light-blue);
-	width: 90%;
-	margin: 4rem auto;
+	width: 70%;
+	margin: 4rem 0;
 	min-height: 50vh;
 	padding: 2rem 3rem;
 	display: flex;
@@ -29,6 +29,18 @@
 	font-weight: bold;
 }
 
+@media (max-width: 1500px) {
+	.wrapper {
+		width: 75%;
+	}
+}
+
+@media (max-width: 1200px) {
+	.wrapper {
+		width: 90%;
+	}
+}
+
 @media (max-width: 992px) {
 	.nav {
 		width: 25%;
@@ -42,7 +54,7 @@
 @media (max-width: 768px) {
 	.wrapper {
 		width: 100%;
-		padding: 2rem 1rem;
+		padding: 2rem 2rem;
 	}
 
 	.nav {
