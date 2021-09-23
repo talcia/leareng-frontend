@@ -2,22 +2,23 @@ import React from 'react';
 
 import classes from './Input.module.css';
 
-const Input = (props) => {
+const Input = ({ style, hasError, errorText, label, ...inputArgs }) => {
 	return (
-		<div className={classes.input} style={props.style}>
+		<div className={classes.input} style={style}>
 			<input
-				type={props.type}
-				id={props.id}
-				required={props.required}
-				placeholder={props.placeholder}
-				value={props.value}
-				onChange={props.onChange}
-				onBlur={props.onBlur}
-				className={props.hasError ? classes.invalid : ''}
+				type={inputArgs.type}
+				id={inputArgs.id}
+				required={inputArgs.required}
+				placeholder={inputArgs.placeholder}
+				value={inputArgs.value}
+				onChange={inputArgs.onChange}
+				onBlur={inputArgs.onBlur}
+				{...inputArgs}
+				className={hasError ? classes.invalid : ''}
 			/>
-			<label>{props.label}</label>
-			{props.hasError && (
-				<p className={classes.errorText}>{props.errorText}</p>
+			<label>{label}</label>
+			{errorText && hasError && (
+				<p className={classes.errorText}>{errorText && errorText}</p>
 			)}
 		</div>
 	);
