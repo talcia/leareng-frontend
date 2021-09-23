@@ -1,0 +1,98 @@
+.general {
+	padding: 2rem 4rem;
+	flex-grow: 1;
+}
+
+.general h2 {
+	font-size: 1.6rem;
+	color: var(--dark-blue);
+	margin-bottom: 2rem;
+}
+
+.info {
+	text-align: center;
+}
+
+.info .avatar div {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin: 0 auto 1rem;
+	background-color: var(--orange);
+}
+
+.info .avatar p {
+	color: var(--orange);
+	cursor: pointer;
+	margin-bottom: 1.5rem;
+}
+
+.accountInfo {
+	font-size: 1.1rem;
+	color: var(--dark-blue);
+}
+
+.accountInfo .name {
+	text-align: center;
+	height: 5vh;
+	margin-bottom: 1.3rem;
+}
+
+.accountInfo .name * {
+	display: inline-block;
+}
+
+.accountInfo .name p {
+	margin: 1rem auto;
+}
+
+.accountInfo .name svg {
+	margin-left: 1rem;
+	margin-right: 0;
+	color: var(--orange);
+	cursor: pointer;
+}
+
+@media (max-width: 992px) {
+	.general {
+		text-align: center;
+	}
+}
+
+@media (max-width: 768px) {
+	.general {
+		text-align: center;
+		padding: 2rem 0;
+	}
+
+	.info .avatar div {
+		width: 120px;
+		height: 120px;
+	}
+
+	.accountInfo .name,
+	p {
+		font-size: 1rem;
+	}
+
+	.accountInfo p {
+		margin-top: 2.5rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.general {
+		text-align: center;
+		padding: 2rem 0;
+	}
+
+	.info .avatar div {
+		width: 120px;
+		height: 120px;
+	}
+
+	.accountInfo .name,
+	p {
+		font-size: 1rem;
+	}
+}
