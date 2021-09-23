@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import {
+	faEdit,
+	faCheckCircle,
+	faTimesCircle,
+} from '@fortawesome/free-regular-svg-icons';
 import Input from '../../components/UI/Input';
 import useInput from '../../hooks/use-input';
 import { sendRequest } from '../../utils/sendRequest';
@@ -90,7 +94,17 @@ const General = ({ user }) => {
 								</>
 							)}
 						</div>
-						<p>{user.email}</p>
+						<div className={classes.email}>
+							<p>{user.email}</p>
+							{user.active ? (
+								<FontAwesomeIcon icon={faCheckCircle} />
+							) : (
+								<FontAwesomeIcon
+									icon={faTimesCircle}
+									className={classes.notConfirm}
+								/>
+							)}
+						</div>
 					</div>
 				)}
 			</div>

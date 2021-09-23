@@ -42,6 +42,10 @@
 	display: inline-block;
 }
 
+.accountInfo .email * {
+	display: inline-block;
+}
+
 .accountInfo .name p {
 	margin: 1rem auto;
 }
@@ -51,6 +55,16 @@
 	margin-right: 0;
 	color: var(--orange);
 	cursor: pointer;
+}
+
+.accountInfo .email svg {
+	margin-left: 1rem;
+	margin-right: 0;
+	color: green;
+}
+
+.accountInfo .email .notConfirm {
+	color: red;
 }
 
 @media (max-width: 992px) {
