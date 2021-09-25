@@ -5,6 +5,7 @@ import AccountContainer from '../../components/Account/AccountContainer';
 import General from '../../components/Account/General';
 import PasswordSettings from '../../components/Account/PasswordSettings';
 import Help from '../../components/Account/Help';
+import Settings from '../../components/Account/Settings';
 import { Switch, Route } from 'react-router';
 import PageTitle from '../../components/UI/PageTitle';
 
@@ -46,11 +47,14 @@ const AccountPage = ({ children }) => {
 					<Route path="/account/general" exact>
 						{layoutRender(<General user={user} />)}
 					</Route>
-					{/* <Route path="/account/passwordSettings" exact>
+					<Route path="/account/passwordSettings" exact>
 						{layoutRender(<PasswordSettings user={user} />)}
 					</Route>
-					<Route path="/account/help" exact>
-						{layoutRender(<Help user={user} />)}
+					<Route path="/account/settings" exact>
+						{layoutRender(<Settings />)}
+					</Route>
+					{/* <Route path="/account/help" exact>
+						{layoutRender(<Help />)}
 					</Route> */}
 				</>
 			)}
