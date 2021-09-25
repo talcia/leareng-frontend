@@ -25,9 +25,13 @@ const UnitDetails = ({ unit }) => {
 				method: 'GET',
 				token: token,
 			};
-			const data = await sendRequest(url, requestObject);
-			const { avatarUrl, email, role, words, ...user } = data.user;
-			setCreator(user);
+			try {
+				const data = await sendRequest(url, requestObject);
+				const { avatarUrl, email, role, words, ...user } = data.user;
+				setCreator(user);
+			} catch (err) {
+				console.log(err);
+			}
 		}
 		fetchData();
 	}, [token, unit.creator]);

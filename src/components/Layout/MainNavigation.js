@@ -30,7 +30,7 @@ const MainNavigation = () => {
 								<Link to="/units">Units</Link>
 							</li>
 							<li>
-								<Link to="/">Account</Link>
+								<Link to="/account/general">Account</Link>
 							</li>
 							<li>
 								<Link

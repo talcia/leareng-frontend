@@ -56,7 +56,7 @@ const MobileNavModal = ({ onHideModal }) => {
 											</li>
 											<li>
 												<Link
-													to="/"
+													to="/account/general"
 													onClick={() =>
 														onHideModal()
 													}

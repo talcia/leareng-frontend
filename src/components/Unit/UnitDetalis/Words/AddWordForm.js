@@ -25,6 +25,7 @@ const AddWordForm = ({ fromLang, toLang, setFormError, addWordHandler }) => {
 	} = useInput((value) => value.trim() !== '');
 
 	const addWord = async (e) => {
+		e.preventDefault();
 		wordBlurHandler();
 		translationBlurHandler();
 
