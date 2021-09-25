@@ -24,23 +24,26 @@ const Words = ({ isCreator, unit }) => {
 				method: 'GET',
 				token: token,
 			};
+			try {
+				const data = await sendRequest(url, requestObject);
+				const words = [];
+				for (let word of data.words) {
+					const {
+						createdAt,
+						creator,
+						difficulty,
+						unit,
+						updatedAt,
+						__v,
+						...shortWord
+					} = word;
 
-			const data = await sendRequest(url, requestObject);
-			const words = [];
-			for (let word of data.words) {
-				const {
-					createdAt,
-					creator,
-					difficulty,
-					unit,
-					updatedAt,
-					__v,
-					...shortWord
-				} = word;
-
-				words.push(shortWord);
+					words.push(shortWord);
+				}
+				setWords(words);
+			} catch (err) {
+				console.log(err);
 			}
-			setWords(words);
 		}
 		fetchData();
 	}, [token, unitId]);
