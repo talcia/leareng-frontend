@@ -20,6 +20,7 @@
 
 .unit p {
 	margin-top: 1rem;
+	color: var(--dark-blue);
 }
 
 .actions {
