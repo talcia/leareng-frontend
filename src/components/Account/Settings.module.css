@@ -1,0 +1,18 @@
+.settings {
+	width: 80%;
+	padding: 2rem;
+	color: var(--dark-blue);
+}
+
+.settings h2 {
+	margin-bottom: 2rem;
+}
+
+.settings p {
+	line-height: 1.5rem;
+}
+
+.settings p span {
+	color: var(--orange);
+	cursor: pointer;
+}
