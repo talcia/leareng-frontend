@@ -1,0 +1,8 @@
+.help {
+	margin: 2rem;
+	color: var(--dark-blue);
+}
+
+.help h2 {
+	margin-bottom: 2rem;
+}
