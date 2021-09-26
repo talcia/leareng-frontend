@@ -12,7 +12,10 @@
 	line-height: 1.5rem;
 }
 
-.settings p span {
-	color: var(--orange);
-	cursor: pointer;
+.actions {
+	display: flex;
+}
+
+.actions p {
+	margin-right: 1rem;
 }
