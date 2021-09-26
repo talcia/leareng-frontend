@@ -53,9 +53,9 @@ const AccountPage = ({ children }) => {
 					<Route path="/account/settings" exact>
 						{layoutRender(<Settings />)}
 					</Route>
-					{/* <Route path="/account/help" exact>
+					<Route path="/account/help" exact>
 						{layoutRender(<Help />)}
-					</Route> */}
+					</Route>
 				</>
 			)}
 		</Switch>
