@@ -13,6 +13,7 @@ import UserIndex from './pages/user/UserIndex';
 import AccountIndex from './pages/account/AccountIndex';
 
 import Container from './components/UI/Container';
+import ApplyTheme from './components/UI/ApplyTheme';
 
 require('dotenv').config();
 
@@ -36,20 +37,22 @@ function App() {
 	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage, token]);
 
 	return (
-		<Layout>
-			<Container>
-				<Switch>
-					<Route path="/" exact>
-						<HomePage />
-					</Route>
-				</Switch>
+		<ApplyTheme>
+			<Layout>
+				<Container>
+					<Switch>
+						<Route path="/" exact>
+							<HomePage />
+						</Route>
+					</Switch>
 
-				<AuthIndex />
-				<UnitIndex />
-				<UserIndex />
-				<AccountIndex />
-			</Container>
-		</Layout>
+					<AuthIndex />
+					<UnitIndex />
+					<UserIndex />
+					<AccountIndex />
+				</Container>
+			</Layout>
+		</ApplyTheme>
 	);
 }
 

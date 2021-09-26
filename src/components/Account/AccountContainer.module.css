@@ -29,6 +29,10 @@
 	font-weight: bold;
 }
 
+.nav ul li .active {
+	color: var(--orange);
+}
+
 @media (max-width: 1500px) {
 	.wrapper {
 		width: 75%;

@@ -5,12 +5,12 @@ button {
 	border: 1px solid var(--orange);
 	width: max(50%, 230px);
 	padding: 0.5rem 1rem;
-	color: var(--main-background);
+	color: var(--light-grey);
 	font-size: 1.2rem;
 }
 
 .cancel {
-	background-color: var(--main-background);
+	background-color: var(--light-grey);
 	border: 1px solid var(--main-background);
 	color: var(--grey);
 }

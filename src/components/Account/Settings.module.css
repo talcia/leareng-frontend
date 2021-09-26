@@ -1,0 +1,21 @@
+.settings {
+	width: 80%;
+	padding: 2rem;
+	color: var(--dark-blue);
+}
+
+.settings h2 {
+	margin-bottom: 2rem;
+}
+
+.settings p {
+	line-height: 1.5rem;
+}
+
+.actions {
+	display: flex;
+}
+
+.actions p {
+	margin-right: 1rem;
+}
