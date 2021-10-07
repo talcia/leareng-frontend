@@ -1,7 +1,7 @@
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import useCreator from '../../../hooks/use-creator';
 import Button from '../Button';
@@ -13,6 +13,7 @@ const Unit = ({ unit }) => {
 	const numbersOfWords = unit.words.length || 0;
 	const isCreator = useCreator(unit.creator);
 	const history = useHistory();
+	const isConfirmed = useSelector((state) => state.auth.isEmailConfirmed);
 
 	const editHandler = () => {
 		history.push(`/units/edit/${unit._id}`, { unit });
@@ -49,7 +50,7 @@ const Unit = ({ unit }) => {
 				<Button
 					text="Play"
 					onClick={onClickHandler}
-					disabled={numbersOfWords === 0}
+					disabled={numbersOfWords === 0 || !isConfirmed}
 				/>
 			</div>
 		</div>
