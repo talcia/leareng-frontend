@@ -1,0 +1,12 @@
+.title {
+	text-align: center;
+	margin: 2rem 0 3rem;
+}
+
+.title h1 {
+	margin-bottom: 1rem;
+}
+
+.title span {
+	color: var(--orange);
+}

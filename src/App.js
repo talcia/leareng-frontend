@@ -14,6 +14,7 @@ import AccountIndex from './pages/account/AccountIndex';
 
 import Container from './components/UI/Container';
 import ApplyTheme from './components/UI/ApplyTheme';
+import GameIndex from './pages/game/GameIndex';
 
 require('dotenv').config();
 
@@ -50,6 +51,7 @@ function App() {
 					<UnitIndex />
 					<UserIndex />
 					<AccountIndex />
+					<GameIndex />
 				</Container>
 			</Layout>
 		</ApplyTheme>

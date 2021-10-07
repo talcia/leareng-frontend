@@ -25,7 +25,10 @@ const Words = ({ isCreator, unit }) => {
 				token: token,
 			};
 			try {
-				const data = await sendRequest(url, requestObject);
+				const data = await sendRequest(url, requestObject, {
+					401: "You can't see words because your email addres is not confirm",
+				});
+				console.log(data);
 				const words = [];
 				for (let word of data.words) {
 					const {

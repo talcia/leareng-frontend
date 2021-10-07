@@ -2,10 +2,16 @@ import React from 'react';
 
 import classes from './Button.module.css';
 
-const Button = ({ cancel, onClick, type, text }) => {
-	const buttonClass = cancel ? 'cancel' : 'button';
+const Button = ({ cancel, onClick, type, text, disabled }) => {
+	const buttonClass = cancel || disabled ? 'cancel' : 'button';
+
 	return (
-		<button onClick={onClick} className={classes[buttonClass]} type={type}>
+		<button
+			onClick={onClick}
+			className={classes[buttonClass]}
+			type={type}
+			disabled={disabled}
+		>
 			{text}
 		</button>
 	);

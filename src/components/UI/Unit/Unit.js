@@ -18,6 +18,10 @@ const Unit = ({ unit }) => {
 		history.push(`/units/edit/${unit._id}`, { unit });
 	};
 
+	const onClickHandler = () => {
+		history.push(`play/${unit._id}`);
+	};
+
 	return (
 		<div className={classes.unit}>
 			<p className={classes.owner}>
@@ -42,7 +46,11 @@ const Unit = ({ unit }) => {
 			}`}</p>
 			<Heart unit={unit} />
 			<div className={classes.actions}>
-				<Button text="Play" />
+				<Button
+					text="Play"
+					onClick={onClickHandler}
+					disabled={numbersOfWords === 0}
+				/>
 			</div>
 		</div>
 	);
