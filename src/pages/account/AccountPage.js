@@ -9,7 +9,7 @@ import Settings from '../../components/Account/Settings';
 import { Switch, Route } from 'react-router';
 import PageTitle from '../../components/UI/PageTitle';
 
-const AccountPage = ({ children }) => {
+const AccountPage = () => {
 	const userId = useSelector((state) => state.auth.userId);
 	const token = useSelector((state) => state.auth.token);
 	const [user, setUser] = useState();
