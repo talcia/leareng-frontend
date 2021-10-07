@@ -12,7 +12,7 @@ import { sendRequest } from '../../utils/sendRequest';
 import classes from './General.module.css';
 import { useSelector } from 'react-redux';
 
-const General = ({ user }) => {
+const General = ({ user, fetchUser }) => {
 	const [editMode, setEditMode] = useState();
 	const token = useSelector((state) => state.auth.token);
 	const [userName, setUserName] = useState(user.name);
@@ -48,6 +48,7 @@ const General = ({ user }) => {
 			const data = await sendRequest(url, requestObject);
 
 			setUserName(data.user.name);
+			fetchUser();
 
 			changeEditMode();
 		}

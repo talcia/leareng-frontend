@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { sendRequest } from '../../utils/sendRequest';
 import AccountContainer from '../../components/Account/AccountContainer';
@@ -14,21 +14,19 @@ const AccountPage = ({ children }) => {
 	const token = useSelector((state) => state.auth.token);
 	const [user, setUser] = useState();
 
-	useEffect(() => {
+	const fetchUser = useCallback(async () => {
 		const url = `${process.env.REACT_APP_BACKENDURL}/users/${userId}`;
 		const requestObject = {
 			method: 'GET',
 			token: token,
 		};
-		async function fetchUser() {
-			const data = await sendRequest(url, requestObject);
+		const data = await sendRequest(url, requestObject);
+		setUser(data.user);
+	}, [token, userId]);
 
-			setUser(data.user);
-			console.log(data.user);
-		}
-
+	useEffect(() => {
 		fetchUser();
-	}, [userId, token]);
+	}, [userId, token, fetchUser]);
 
 	const layoutRender = (children) => (
 		<>
@@ -45,7 +43,9 @@ const AccountPage = ({ children }) => {
 			{user && (
 				<>
 					<Route path="/account/general" exact>
-						{layoutRender(<General user={user} />)}
+						{layoutRender(
+							<General user={user} fetchUser={fetchUser} />
+						)}
 					</Route>
 					<Route path="/account/passwordSettings" exact>
 						{layoutRender(<PasswordSettings user={user} />)}
