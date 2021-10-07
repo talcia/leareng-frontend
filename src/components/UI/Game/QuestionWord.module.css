@@ -1,0 +1,50 @@
+.gameContainer {
+	background-color: var(--light-blue);
+	width: 30%;
+	margin: 0 auto;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.gameContainer p {
+	color: var(--dark-blue);
+	font-size: 1.1rem;
+	margin: 1rem 0 3rem;
+}
+
+.gameContainer h1 {
+	color: var(--orange);
+	margin-bottom: 5rem;
+}
+
+.gameContainer .actions {
+	margin-bottom: 2rem;
+}
+
+.gameContainer .actions input {
+	margin-bottom: 2rem;
+}
+
+@media (max-width: 1200px) {
+	.gameContainer {
+		width: 40%;
+	}
+}
+
+@media (max-width: 992px) {
+	.gameContainer {
+		width: 60%;
+	}
+}
+
+@media (max-width: 768px) {
+	.gameContainer {
+		width: 70%;
+	}
+}
+
+@media (max-width: 600px) {
+	.gameContainer {
+		width: 100%;
+	}
+}
