@@ -42,7 +42,7 @@ const GameIndex = () => {
 				401: 'Your email address is not confirm',
 			});
 
-			if (data.unit.words.length !== 0) {
+			if (data.words.length !== 0) {
 				setWords(data.words);
 			}
 		} catch (err) {
