@@ -105,6 +105,7 @@ const GameIndex = () => {
 								fromLang={fromLang}
 								toLang={toLang}
 								unitTitle={unitTitle}
+								reverse={reverse}
 							/>
 						</Route>
 					</>

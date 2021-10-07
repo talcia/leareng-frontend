@@ -7,7 +7,14 @@ import classes from './EndOfGame.module.css';
 import { useHistory, useLocation } from 'react-router';
 import AnswersTable from './AnswersTable';
 
-const EndOfGame = ({ unitTitle, fromLang, toLang, ratedAnswers, points }) => {
+const EndOfGame = ({
+	unitTitle,
+	fromLang,
+	toLang,
+	ratedAnswers,
+	points,
+	reverse,
+}) => {
 	const history = useHistory();
 	const { pathname } = useLocation();
 
@@ -51,7 +58,7 @@ const EndOfGame = ({ unitTitle, fromLang, toLang, ratedAnswers, points }) => {
 				<span>{result}%</span>
 				<p className={classes.endText}>{endText()}</p>
 			</div>
-			<AnswersTable ratedAnswers={ratedAnswers} />
+			<AnswersTable ratedAnswers={ratedAnswers} reverse={reverse} />
 			<div className={classes.actions}>
 				<Button text="Play again" onClick={playAgainHandler} />
 				<Button

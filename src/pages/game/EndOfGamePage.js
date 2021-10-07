@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import EndOfGame from '../../components/Game/EndOfGame';
 
-const EndOfGamePage = ({ answers, ...props }) => {
+const EndOfGamePage = ({ answers, reverse, ...props }) => {
 	const [points, setPoints] = useState(0);
 	const [goodAnswers, setGoodAnswers] = useState([]);
 
 	const countGoodAnswers = useCallback(() => {
 		const ratedAnswers = answers.map((item) => {
 			let correct = false;
-			if (item.translation.includes(item.answer.toLowerCase())) {
+			let correctAnswers = reverse ? item.word : item.translation;
+			if (correctAnswers.includes(item.answer.toLowerCase())) {
 				correct = true;
 			}
 			return { ...item, correct };
@@ -26,7 +27,14 @@ const EndOfGamePage = ({ answers, ...props }) => {
 		countGoodAnswers();
 	}, [countGoodAnswers]);
 
-	return <EndOfGame {...props} ratedAnswers={goodAnswers} points={points} />;
+	return (
+		<EndOfGame
+			{...props}
+			ratedAnswers={goodAnswers}
+			points={points}
+			reverse={reverse}
+		/>
+	);
 };
 
 export default EndOfGamePage;

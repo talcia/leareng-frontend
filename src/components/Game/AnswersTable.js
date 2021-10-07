@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './AnswersTable.module.css';
 
-const AnswersTable = ({ ratedAnswers }) => {
+const AnswersTable = ({ ratedAnswers, reverse }) => {
 	return (
 		<div className={classes.translation}>
 			<table>
@@ -16,7 +16,11 @@ const AnswersTable = ({ ratedAnswers }) => {
 				<tbody className={classes.words}>
 					{ratedAnswers.map((item) => (
 						<tr key={item._id}>
-							<td>{item.word.join(', ')}</td>
+							<td>
+								{reverse
+									? item.translation.join(', ')
+									: item.word.join(', ')}
+							</td>
 							<td
 								className={
 									item.correct ? classes.good : classes.bad
@@ -25,7 +29,9 @@ const AnswersTable = ({ ratedAnswers }) => {
 								{item.answer}
 							</td>
 							<td className={!item.correct ? classes.good : ''}>
-								{item.translation.join(', ')}
+								{reverse
+									? item.word.join(', ')
+									: item.translation.join(', ')}
 							</td>
 						</tr>
 					))}
