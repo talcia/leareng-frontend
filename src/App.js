@@ -45,13 +45,22 @@ function App() {
 						<Route path="/" exact>
 							<HomePage />
 						</Route>
+						<Route path="/auth">
+							<AuthIndex />
+						</Route>
+						<Route path="/units">
+							<UnitIndex />
+						</Route>
+						<Route path="/users">
+							<UserIndex />
+						</Route>
+						<Route path="/account">
+							<AccountIndex />
+						</Route>
+						<Route path="/play">
+							<GameIndex />
+						</Route>
 					</Switch>
-
-					<AuthIndex />
-					<UnitIndex />
-					<UserIndex />
-					<AccountIndex />
-					<GameIndex />
 				</Container>
 			</Layout>
 		</ApplyTheme>
