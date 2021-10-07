@@ -16,6 +16,7 @@ const General = ({ user, fetchUser }) => {
 	const [editMode, setEditMode] = useState();
 	const token = useSelector((state) => state.auth.token);
 	const [userName, setUserName] = useState(user.name);
+	const isConfirmed = useSelector((state) => state.auth.isEmailConfirmed);
 
 	const {
 		value: enteredName,
@@ -97,7 +98,7 @@ const General = ({ user, fetchUser }) => {
 						</div>
 						<div className={classes.email}>
 							<p>{user.email}</p>
-							{user.active ? (
+							{isConfirmed ? (
 								<FontAwesomeIcon icon={faCheckCircle} />
 							) : (
 								<FontAwesomeIcon
