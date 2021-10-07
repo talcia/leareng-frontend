@@ -1,0 +1,77 @@
+.translation {
+	width: 100%;
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.translation table {
+	width: 70%;
+	background-color: var(--main-background);
+}
+
+table {
+	border-spacing: 0;
+}
+
+.translation .title tr {
+	font-weight: bold;
+	background-color: var(--main-background);
+}
+
+.words > :nth-child(odd) {
+	background-color: var(--light-grey);
+}
+
+tbody {
+	color: var(--dark-blue);
+}
+
+.translation table thead {
+	font-weight: bold;
+	color: var(--dark-blue);
+	width: 100%;
+}
+
+.translation td {
+	padding: 1rem 0;
+	text-align: center;
+}
+
+.translation .good {
+	color: green;
+}
+
+.translation .bad {
+	color: red;
+}
+
+@media (max-width: 1500px) {
+	.translation table {
+		width: 90%;
+	}
+}
+
+@media (max-width: 1124px) {
+	.translation table {
+		width: 80%;
+	}
+}
+
+@media (max-width: 992px) {
+	.translation {
+		padding: 2rem 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.translation {
+		width: 100%;
+		font-size: 0.9rem;
+	}
+
+	.translation table {
+		width: 100%;
+	}
+}
