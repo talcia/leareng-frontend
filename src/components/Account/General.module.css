@@ -21,10 +21,19 @@
 	background-color: var(--orange);
 }
 
-.info .avatar p {
+.info .avatar label {
 	color: var(--orange);
 	cursor: pointer;
 	margin-bottom: 1.5rem;
+}
+
+.info .avatar input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
 
 .accountInfo {
