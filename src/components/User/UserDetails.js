@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { sendRequest } from '../../utils/sendRequest';
+import Avatar from '../UI/Avatar';
 import PageTitle from '../UI/PageTitle';
 import Units from '../UI/Unit/Units';
 
@@ -33,7 +34,7 @@ const UserDetails = ({ user }) => {
 			</div>
 			<div className={classes.wrapper}>
 				<div className={classes.userDetails}>
-					<div className={classes.avatar}></div>
+					<Avatar avatarUrl={user.avatarUrl} />
 					<p>{user.name}</p>
 				</div>
 			</div>
