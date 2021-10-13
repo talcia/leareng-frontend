@@ -29,7 +29,7 @@ const EndOfGame = ({
 		history.push(`/units/${unitId}`);
 	};
 
-	const result = (points / ratedAnswers.length) * 100;
+	const result = Math.round((points / ratedAnswers.length) * 10000) / 100;
 
 	const endText = () => {
 		if (result <= 25) {
