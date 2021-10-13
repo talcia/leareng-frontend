@@ -3,16 +3,10 @@ import React from 'react';
 import classes from './Avatar.module.css';
 
 const Avatar = ({ avatarUrl }) => {
-	return (
-		<div
-			className={classes.avatar}
-			style={
-				avatarUrl && {
-					backgroundImage: `url('${process.env.REACT_APP_BACKENDURL}/${avatarUrl}')`,
-				}
-			}
-		></div>
-	);
+	const style = avatarUrl && {
+		backgroundImage: `url('https://leareng-bucket.s3.eu-west-1.amazonaws.com/images/${avatarUrl}')`,
+	};
+	return <div className={classes.avatar} style={{ ...style }}></div>;
 };
 
 export default Avatar;
