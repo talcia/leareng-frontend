@@ -11,13 +11,13 @@ import ConfirmMessage from '../../components/Auth/ConfirmMessage';
 import jwt from 'jwt-decode';
 
 const ConfirmEmailPage = () => {
-	const { token } = useParams();
+	const { signupToken } = useParams();
 	const [error, setError] = useState(null);
 	const dispatch = useDispatch();
-	console.log(token);
+	console.log(signupToken);
 	useEffect(() => {
 		async function sendData() {
-			const url = `${process.env.REACT_APP_BACKENDURL}/auth/confirmEmail/${token}`;
+			const url = `${process.env.REACT_APP_BACKENDURL}/auth/confirmEmail/${signupToken}`;
 			const requestObject = {
 				method: 'GET',
 			};
@@ -42,7 +42,7 @@ const ConfirmEmailPage = () => {
 			}
 		}
 		sendData();
-	}, [token, dispatch]);
+	}, [signupToken, dispatch]);
 
 	return (
 		<ConfirmMessage
