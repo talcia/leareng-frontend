@@ -12,8 +12,10 @@ import { sendRequest } from '../../utils/sendRequest';
 import classes from './General.module.css';
 import { useSelector } from 'react-redux';
 import Avatar from '../UI/Avatar';
+import { useHistory } from 'react-router';
 
 const General = ({ user, fetchUser }) => {
+	const history = useHistory();
 	const [editMode, setEditMode] = useState();
 	const token = useSelector((state) => state.auth.token);
 	const [userName, setUserName] = useState(user.name);
@@ -77,6 +79,10 @@ const General = ({ user, fetchUser }) => {
 		fetchUser();
 	};
 
+	const confirmHandler = () => {
+		history.push('/auth/send-confirm-email');
+	};
+
 	return (
 		<div className={classes.general}>
 			<h2>General info</h2>
@@ -133,6 +139,7 @@ const General = ({ user, fetchUser }) => {
 								<FontAwesomeIcon
 									icon={faTimesCircle}
 									className={classes.notConfirm}
+									onClick={confirmHandler}
 								/>
 							)}
 						</div>
