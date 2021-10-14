@@ -21,7 +21,7 @@ const EndOfGamePage = ({ answers, reverse, ...props }) => {
 
 		setGoodAnswers(ratedAnswers);
 		setPoints(numberOfGoodAnswers);
-	}, [answers]);
+	}, [answers, reverse]);
 
 	useEffect(() => {
 		countGoodAnswers();

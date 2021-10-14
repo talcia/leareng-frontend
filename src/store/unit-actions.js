@@ -130,7 +130,6 @@ export const deleteWord = (unitId, wordId, token) => {
 };
 
 const sendReq = async (url, requestObject) => {
-	console.log('tutej');
 	const errorMessage = {
 		401: 'Please confirm your email address if you want to add units',
 	};

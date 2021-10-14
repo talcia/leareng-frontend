@@ -11,11 +11,15 @@ import { sendRequest } from '../../utils/sendRequest';
 
 import classes from './General.module.css';
 import { useSelector } from 'react-redux';
+import Avatar from '../UI/Avatar';
+import { useHistory } from 'react-router';
 
 const General = ({ user, fetchUser }) => {
+	const history = useHistory();
 	const [editMode, setEditMode] = useState();
 	const token = useSelector((state) => state.auth.token);
 	const [userName, setUserName] = useState(user.name);
+	const [userAvatarUrl, setUserAvatarUrl] = useState(user.avatarUrl);
 	const isConfirmed = useSelector((state) => state.auth.isEmailConfirmed);
 
 	const {
@@ -55,13 +59,44 @@ const General = ({ user, fetchUser }) => {
 		}
 	};
 
+	const changeImage = async (e) => {
+		const file = e.target.files[0];
+		const url = `${process.env.REACT_APP_BACKENDURL}/users/${user._id}/avatar`;
+		const formData = new FormData();
+		formData.append('image', file, file.name);
+
+		const response = await fetch(url, {
+			method: 'PATCH',
+			body: formData,
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
+
+		const data = await response.json();
+
+		setUserAvatarUrl(data.user.avatarUrl);
+		fetchUser();
+	};
+
+	const confirmHandler = () => {
+		history.push('/auth/send-confirm-email');
+	};
+
 	return (
 		<div className={classes.general}>
 			<h2>General info</h2>
 			<div className={classes.info}>
 				<div className={classes.avatar}>
-					<div></div>
-					<p>Upload Image</p>
+					<Avatar avatarUrl={userAvatarUrl} />
+					<label htmlFor="avatar">Upload Image</label>
+					<input
+						type="file"
+						id="avatar"
+						name="avatar"
+						accept="image/png, image/jpeg, image/png"
+						onChange={changeImage}
+					/>
 				</div>
 
 				{user && (
@@ -104,6 +139,7 @@ const General = ({ user, fetchUser }) => {
 								<FontAwesomeIcon
 									icon={faTimesCircle}
 									className={classes.notConfirm}
+									onClick={confirmHandler}
 								/>
 							)}
 						</div>

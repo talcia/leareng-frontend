@@ -10,6 +10,7 @@ import classes from './UnitDetails.module.css';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Words from './Words/Words';
+import Button from '../../UI/Button';
 
 const UnitDetails = ({ unit }) => {
 	const [deleteModalIsShown, setDeleteModalIsShown] = useState(false);
@@ -17,6 +18,12 @@ const UnitDetails = ({ unit }) => {
 	const token = useSelector((state) => state.auth.token);
 	const history = useHistory();
 	const [creator, setCreator] = useState({});
+	const isConfirmed = useSelector((state) => state.auth.isEmailConfirmed);
+	const [numberOfWords, setNumberOfWords] = useState(unit.words.length);
+
+	const onClickHandler = () => {
+		history.push(`/play/${unit._id}`);
+	};
 
 	useEffect(() => {
 		async function fetchData() {
@@ -48,6 +55,10 @@ const UnitDetails = ({ unit }) => {
 		history.push(`/units/edit/${unit._id}`, { unit });
 	};
 
+	const updateNumberOfWords = (number) => {
+		setNumberOfWords(number);
+	};
+
 	return (
 		<div className={classes.wrapper}>
 			{deleteModalIsShown ? (
@@ -57,9 +68,9 @@ const UnitDetails = ({ unit }) => {
 				<div className={classes.titles}>
 					<div className={classes.title}>
 						<h1>{unit.name}</h1>
-						<Heart unit={unit} />
 					</div>
 					<div className={classes.detail}>
+						<Heart unit={unit} />
 						<p>
 							creator:{' '}
 							<span
@@ -78,7 +89,7 @@ const UnitDetails = ({ unit }) => {
 				</div>
 				<div className={classes.actions}>
 					{isCreator && (
-						<>
+						<div>
 							<FontAwesomeIcon
 								icon={faEdit}
 								color={'var(--orange)'}
@@ -89,11 +100,22 @@ const UnitDetails = ({ unit }) => {
 								color={'var(--orange)'}
 								onClick={showModalHanlder}
 							/>
-						</>
+						</div>
 					)}
+					<div className={classes.buttonPlay}>
+						<Button
+							text="Play"
+							onClick={onClickHandler}
+							disabled={numberOfWords === 0 || !isConfirmed}
+						/>
+					</div>
 				</div>
 			</div>
-			<Words isCreator={isCreator} unit={unit} />
+			<Words
+				isCreator={isCreator}
+				unit={unit}
+				updateNumberOfWords={updateNumberOfWords}
+			/>
 		</div>
 	);
 };

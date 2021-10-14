@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { sendRequest } from '../../utils/sendRequest';
 
 import { useDispatch } from 'react-redux';
+import { sendRequest } from '../../utils/sendRequest';
 
 import { authActions } from '../../store/auth-slice';
 import ConfirmMessage from '../../components/Auth/ConfirmMessage';

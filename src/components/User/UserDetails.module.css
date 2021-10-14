@@ -20,14 +20,6 @@
 	margin-bottom: 2rem;
 }
 
-.avatar {
-	width: 100px;
-	height: 100px;
-	margin: 2rem auto;
-	border-radius: 50%;
-	background-color: var(--orange);
-}
-
 .userDetails .userUnits {
 	width: 80%;
 	margin: 6rem auto;
