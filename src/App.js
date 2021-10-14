@@ -23,19 +23,20 @@ function App() {
 	const dispatch = useDispatch();
 	const token = useSelector((state) => state.auth.token);
 
-	const checkIfTokenInLocalStorage = async () => {
-		try {
-			await dispatch(getTokenFromLocalStorage());
-			if (isAuth) {
-				await dispatch(fetchOwnUnits(token));
-				await dispatch(fetchFavouriteUnits(token));
+	useEffect(() => {
+		async function checkIfTokenInLocalStorage() {
+			try {
+				await dispatch(getTokenFromLocalStorage());
+				if (isAuth) {
+					await dispatch(fetchOwnUnits(token));
+					await dispatch(fetchFavouriteUnits(token));
+				}
+			} catch (err) {
+				throw err;
 			}
-		} catch (err) {
-			throw err;
 		}
-	};
-
-	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage, token]);
+		checkIfTokenInLocalStorage();
+	}, [dispatch, isAuth, token]);
 
 	return (
 		<ApplyTheme>
