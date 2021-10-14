@@ -10,7 +10,6 @@ import classes from './ForgotPasswordForm.module.css';
 import { sendRequest } from '../../utils/sendRequest';
 
 const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
-	const [isLoading, setIsLoading] = useState(false);
 	const [formError, setFormError] = useState(null);
 
 	const {
@@ -46,13 +45,10 @@ const SendConfirmEmailForm = ({ setIsEmailWasSent }) => {
 		};
 
 		try {
-			setIsLoading(true);
 			await sendRequest(url, requestObject, errorMessage);
 			setIsEmailWasSent(true);
 			emailReset();
-			setIsLoading(false);
 		} catch (err) {
-			setIsLoading(false);
 			setFormError(err);
 		}
 	};
