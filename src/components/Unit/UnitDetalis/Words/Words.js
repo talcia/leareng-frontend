@@ -9,7 +9,7 @@ import { sendRequest } from '../../../../utils/sendRequest';
 import Word from './Word';
 import AddWordForm from './AddWordForm';
 
-const Words = ({ isCreator, unit }) => {
+const Words = ({ isCreator, unit, updateNumberOfWords }) => {
 	const [formError, setFormError] = useState(null);
 	const [words, setWords] = useState([]);
 	const token = useSelector((state) => state.auth.token);
@@ -67,6 +67,7 @@ const Words = ({ isCreator, unit }) => {
 			} = word;
 			wordsList.unshift(shortWord);
 			setWords(wordsList);
+			updateNumberOfWords(wordsList.length);
 		} catch (err) {
 			setFormError(err.message);
 		}

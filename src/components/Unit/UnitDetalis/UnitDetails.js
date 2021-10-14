@@ -19,9 +19,10 @@ const UnitDetails = ({ unit }) => {
 	const history = useHistory();
 	const [creator, setCreator] = useState({});
 	const isConfirmed = useSelector((state) => state.auth.isEmailConfirmed);
+	const [numberOfWords, setNumberOfWords] = useState(unit.words.length);
 
 	const onClickHandler = () => {
-		history.push(`play/${unit._id}`);
+		history.push(`/play/${unit._id}`);
 	};
 
 	useEffect(() => {
@@ -52,6 +53,10 @@ const UnitDetails = ({ unit }) => {
 
 	const editHandler = () => {
 		history.push(`/units/edit/${unit._id}`, { unit });
+	};
+
+	const updateNumberOfWords = (number) => {
+		setNumberOfWords(number);
 	};
 
 	return (
@@ -101,12 +106,16 @@ const UnitDetails = ({ unit }) => {
 						<Button
 							text="Play"
 							onClick={onClickHandler}
-							disabled={unit.words.length === 0 || !isConfirmed}
+							disabled={numberOfWords === 0 || !isConfirmed}
 						/>
 					</div>
 				</div>
 			</div>
-			<Words isCreator={isCreator} unit={unit} />
+			<Words
+				isCreator={isCreator}
+				unit={unit}
+				updateNumberOfWords={updateNumberOfWords}
+			/>
 		</div>
 	);
 };

@@ -74,6 +74,7 @@
 
 .accountInfo .email .notConfirm {
 	color: red;
+	cursor: pointer;
 }
 
 @media (max-width: 992px) {
