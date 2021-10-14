@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { sendRequest } from '../../utils/sendRequest';
 
 import { useDispatch } from 'react-redux';
 
@@ -12,34 +14,35 @@ const ConfirmEmailPage = () => {
 	const { token } = useParams();
 	const [error, setError] = useState(null);
 	const dispatch = useDispatch();
-
-	const sendRequest = useCallback(async () => {
-		const url = `${process.env.REACT_APP_BACKENDURL}/auth/confirmEmail/${token}`;
-		const requestObject = {
-			method: 'GET',
-		};
-		const errorMessage = {
-			400: 'Sorry but your link is invalid',
-			404: 'Sorry but your link expired',
-		};
-		try {
-			const data = await sendRequest(url, requestObject, errorMessage);
-			const user = jwt(data.token);
-			dispatch(authActions.login({ token: data.token, user }));
-		} catch (err) {
-			setError({
-				title: err.message,
-				message: 'You can ask to send confirm email again',
-			});
-		}
-	}, [token, dispatch]);
-
+	console.log(token);
 	useEffect(() => {
-		async function fetchData() {
-			await sendRequest();
+		async function sendData() {
+			const url = `${process.env.REACT_APP_BACKENDURL}/auth/confirmEmail/${token}`;
+			const requestObject = {
+				method: 'GET',
+			};
+			const errorMessage = {
+				400: 'Sorry but your link is invalid',
+				404: 'Sorry but your link expired',
+			};
+			try {
+				const data = await sendRequest(
+					url,
+					requestObject,
+					errorMessage
+				);
+				const user = jwt(data.token);
+				console.log(user);
+				dispatch(authActions.login({ token: data.token, user }));
+			} catch (err) {
+				setError({
+					title: err.message,
+					message: 'You can ask to send confirm email again',
+				});
+			}
 		}
-		fetchData();
-	}, [sendRequest]);
+		sendData();
+	}, [token, dispatch]);
 
 	return (
 		<ConfirmMessage
