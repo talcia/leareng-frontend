@@ -46,9 +46,6 @@ function App() {
 						<Route path="/" exact>
 							<HomePage />
 						</Route>
-						<Route path="/:signupToken">
-							<ConfirmEmailPage />
-						</Route>
 						<Route path="/auth">
 							<AuthIndex />
 						</Route>
@@ -63,6 +60,9 @@ function App() {
 						</Route>
 						<Route path="/play">
 							<GameIndex />
+						</Route>
+						<Route path="/:signupToken">
+							<ConfirmEmailPage />
 						</Route>
 					</Switch>
 				</Container>
