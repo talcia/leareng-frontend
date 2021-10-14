@@ -11,6 +11,7 @@ import AuthIndex from './pages/auth/AuthIndex';
 import UnitIndex from './pages/unit/UnitIndex';
 import UserIndex from './pages/user/UserIndex';
 import AccountIndex from './pages/account/AccountIndex';
+import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 
 import Container from './components/UI/Container';
 import ApplyTheme from './components/UI/ApplyTheme';
@@ -23,20 +24,19 @@ function App() {
 	const dispatch = useDispatch();
 	const token = useSelector((state) => state.auth.token);
 
-	useEffect(() => {
-		async function checkIfTokenInLocalStorage() {
-			try {
-				await dispatch(getTokenFromLocalStorage());
-				if (isAuth) {
-					await dispatch(fetchOwnUnits(token));
-					await dispatch(fetchFavouriteUnits(token));
-				}
-			} catch (err) {
-				throw err;
+	const checkIfTokenInLocalStorage = async () => {
+		try {
+			await dispatch(getTokenFromLocalStorage());
+			if (isAuth) {
+				await dispatch(fetchOwnUnits(token));
+				await dispatch(fetchFavouriteUnits(token));
 			}
+		} catch (err) {
+			throw err;
 		}
-		checkIfTokenInLocalStorage();
-	}, [dispatch, isAuth, token]);
+	};
+
+	useEffect(checkIfTokenInLocalStorage, [checkIfTokenInLocalStorage, token]);
 
 	return (
 		<ApplyTheme>
@@ -45,6 +45,9 @@ function App() {
 					<Switch>
 						<Route path="/" exact>
 							<HomePage />
+						</Route>
+						<Route path="/:signupToken">
+							<ConfirmEmailPage />
 						</Route>
 						<Route path="/auth">
 							<AuthIndex />
