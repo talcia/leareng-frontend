@@ -84,47 +84,47 @@ Here is some screenshots of app in 1920x1080 resultion and on mobile.
 -   Login page
 <p float="left">
   <img src="./screens/login_ekran.png" />
-  <img src="./screens/login_mobile.png" />
+  <img src="./screens/login_mobile.png" width="300" />
 </p>
 
 -   Signup page
 <p float="left">
   <img src="./screens/signup_ekran.png" />
-  <img src="./screens/signup_mobile.png" />
+  <img src="./screens/signup_mobile.png" width="300" />
 </p>
 
 -   Add unit page
 <p float="left">
   <img src="./screens/addUnit_ekran.png" />
-  <img src="./screens/addUnit_mobile.png" />
+  <img src="./screens/addUnit_mobile.png" width="300" />
 </p>
 
 -   Own units page
 <p float="left">
   <img src="./screens/ownUnits_ekran.png" />
-  <img src="./screens/ownUnits_mobile.png" />
+  <img src="./screens/ownUnits_mobile.png" width="300" />
 </p>
 
 -   Unit details page
 <p float="left">
   <img src="./screens/unitDetails_ekran.png" />
-  <img src="./screens/unitDetails_mobile.png" />
+  <img src="./screens/unitDetails_mobile.png" width="300" />
 </p>
 
 -   Game settings page
 <p float="left">
   <img src="./screens/gameSettings_ekran.png" />
-  <img src="./screens/gameSettings_mobile.png" />
+  <img src="./screens/gameSettings_mobile.png" width="300" />
 </p>
 
 -   Game page
 <p float="left">
   <img src="./screens/game_ekran.png" />
-  <img src="./screens/game_mobile.png" />
+  <img src="./screens/game_mobile.png" width="300" />
 </p>
 
 -   End of game page
 <p float="left">
   <img src="./screens/gameEnd_ekran.png" />
-  <img src="./screens/gameEnd_mobile.png" />
+  <img src="./screens/gameEnd_mobile.png" width="300" />
 </p>
