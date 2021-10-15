@@ -11,7 +11,7 @@ import AuthIndex from './pages/auth/AuthIndex';
 import UnitIndex from './pages/unit/UnitIndex';
 import UserIndex from './pages/user/UserIndex';
 import AccountIndex from './pages/account/AccountIndex';
-import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
+import TokenHandlingPage from './pages/auth/TokenHandlingPage';
 
 import Container from './components/UI/Container';
 import ApplyTheme from './components/UI/ApplyTheme';
@@ -61,8 +61,8 @@ function App() {
 						<Route path="/play">
 							<GameIndex />
 						</Route>
-						<Route path="/:signupToken">
-							<ConfirmEmailPage />
+						<Route path="/:token">
+							<TokenHandlingPage />
 						</Route>
 					</Switch>
 				</Container>
