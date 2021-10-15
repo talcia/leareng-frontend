@@ -12,7 +12,7 @@ This is repo with frontend code. Repo with backend code you can find [here](http
 
 ## General info
 
-Leareng is an app created to learn foreign language by method similar to flashcard learning method. The applications is based on playing units and serning points by correctly translating words into another language. This app is a good choice for people looking to expand their foreign language vocabulary through interactive learning.
+Leareng is an app created to learn foreign language by method similar to flashcard learning method. The applications is based on playing units and scoring points by correctly translating words into another language. This app is a good choice for people looking to expand their foreign language vocabulary through interactive learning.
 
 I created this app to use it to improve my language skills as well as to learn React and Node.
 
@@ -69,7 +69,7 @@ The app is deployed on netlify. The API is hosted on heroku and available [here]
 -   translate words given in every flashcard in single game
 -   check statistic after each game (points scored,right and wrong answers)
 
-### To Do
+### Functionality To Do
 
 -   word difficulty updated based on correct and bad translations of the given word
 -   spaced repetition method (newly introduced and more difficult flashcards are shown more frequently)
@@ -83,48 +83,48 @@ Here is some screenshots of app in 1920x1080 resultion and on mobile.
 
 -   Login page
 <p float="left">
-  <img src="./screens/login_ekran.png" width="100" />
-  <img src="./screens/login_mobile.png" width="100" />
+  <img src="./screens/login_ekran.png" width="500" />
+  <img src="./screens/login_mobile.png" width="150" />
 </p>
 
 -   Signup page
 <p float="left">
-  <img src="./screens/signup_ekran.png" width="100" />
-  <img src="./screens/signup_mobile.png" width="100" />
+  <img src="./screens/signup_ekran.png" width="500" />
+  <img src="./screens/signup_mobile.png" width="150" />
 </p>
 
 -   Add unit page
 <p float="left">
-  <img src="./screens/addUnit_ekran.png" width="100" />
-  <img src="./screens/addUnit_mobile.png" width="100" />
+  <img src="./screens/addUnit_ekran.png" width="500" />
+  <img src="./screens/addUnit_mobile.png" width="150" />
 </p>
 
 -   Own units page
 <p float="left">
-  <img src="./screens/ownUnits_ekran.png" width="100" />
-  <img src="./screens/ownUnits_mobile.png" width="100" />
+  <img src="./screens/ownUnits_ekran.png" width="500" />
+  <img src="./screens/ownUnits_mobile.png" width="150" />
 </p>
 
 -   Unit details page
 <p float="left">
-  <img src="./screens/unitDetails_ekran.png" width="100" />
-  <img src="./screens/unitDetails_mobile.png" width="100" />
+  <img src="./screens/unitDetails_ekran.png" width="500" />
+  <img src="./screens/unitDetails_mobile.png" width="150" />
 </p>
 
 -   Game settings page
 <p float="left">
-  <img src="./screens/gameSettings_ekran.png" width="100" />
-  <img src="./screens/gameSettings_mobile.png" width="100" />
+  <img src="./screens/gameSettings_ekran.png" width="500" />
+  <img src="./screens/gameSettings_mobile.png" width="150" />
 </p>
 
 -   Game page
 <p float="left">
-  <img src="./screens/game_ekran.png" width="100" />
-  <img src="./screens/game_mobile.png" width="100" />
+  <img src="./screens/game_ekran.png" width="500" />
+  <img src="./screens/game_mobile.png" width="150" />
 </p>
 
 -   End of game page
 <p float="left">
-  <img src="./screens/gameEnd_ekran.png" width="100" />
-  <img src="./screens/gameEnd_mobile.png" width="100" />
+  <img src="./screens/gameEnd_ekran.png" width="500" />
+  <img src="./screens/gameEnd_mobile.png" width="150" />
 </p>
