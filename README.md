@@ -83,48 +83,48 @@ Here is some screenshots of app in 1920x1080 resultion and on mobile.
 
 -   Login page
 <p float="left">
-  <img src="./screens/login_ekran.png" width="500" />
-  <img src="./screens/login_mobile.png" width="150" />
+  <img src="./screens/login_ekran.png" width="675" />
+  <img src="./screens/login_mobile.png" width="225" />
 </p>
 
 -   Signup page
 <p float="left">
-  <img src="./screens/signup_ekran.png" width="500" />
-  <img src="./screens/signup_mobile.png" width="150" />
+  <img src="./screens/signup_ekran.png" width="675" />
+  <img src="./screens/signup_mobile.png" width="225" />
 </p>
 
 -   Add unit page
 <p float="left">
-  <img src="./screens/addUnit_ekran.png" width="500" />
-  <img src="./screens/addUnit_mobile.png" width="150" />
+  <img src="./screens/addUnit_ekran.png" width="675" />
+  <img src="./screens/addUnit_mobile.png" width="225" />
 </p>
 
 -   Own units page
 <p float="left">
-  <img src="./screens/ownUnits_ekran.png" width="500" />
-  <img src="./screens/ownUnits_mobile.png" width="150" />
+  <img src="./screens/ownUnits_ekran.png" width="675" />
+  <img src="./screens/ownUnits_mobile.png" width="225" />
 </p>
 
 -   Unit details page
 <p float="left">
-  <img src="./screens/unitDetails_ekran.png" width="500" />
-  <img src="./screens/unitDetails_mobile.png" width="150" />
+  <img src="./screens/unitDetails_ekran.png" width="675" />
+  <img src="./screens/unitDetails_mobile.png" width="225" />
 </p>
 
 -   Game settings page
 <p float="left">
-  <img src="./screens/gameSettings_ekran.png" width="500" />
-  <img src="./screens/gameSettings_mobile.png" width="150" />
+  <img src="./screens/gameSettings_ekran.png" width="675" />
+  <img src="./screens/gameSettings_mobile.png" width="225" />
 </p>
 
 -   Game page
 <p float="left">
-  <img src="./screens/game_ekran.png" width="500" />
-  <img src="./screens/game_mobile.png" width="150" />
+  <img src="./screens/game_ekran.png" width="675" />
+  <img src="./screens/game_mobile.png" width="225" />
 </p>
 
 -   End of game page
 <p float="left">
-  <img src="./screens/gameEnd_ekran.png" width="500" />
-  <img src="./screens/gameEnd_mobile.png" width="150" />
+  <img src="./screens/gameEnd_ekran.png" width="675" />
+  <img src="./screens/gameEnd_mobile.png" width="225" />
 </p>
