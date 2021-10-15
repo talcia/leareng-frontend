@@ -3,7 +3,7 @@
 Leareng is an app created to learn foreign language by method similar to flashcard learning method.
 This is repo with frontend code. Repo with backend code you can find [here](https://github.com/talcia/leareng-backend)
 
-## Table of contest
+## Table of contents
 
 -   General info
 -   Technologies
