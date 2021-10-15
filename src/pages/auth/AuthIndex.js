@@ -1,33 +1,40 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 
 import AuthPage from './AuthPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
-import ResetPasswordPage from './ResetPasswordPage';
 import SendConfirmEmailPage from './SendConfirmEmailPage';
 import AccountCreatedPage from './AccountCreatedPage';
-import ConfirmEmailPage from './ConfirmEmailPage';
+import { useSelector } from 'react-redux';
 
 const AuthIndex = () => {
+	const isAuth = useSelector((state) => state.auth.isAuthenticated);
+	const history = useHistory();
+
+	const redicretToHomePage = () => {
+		history.push('/');
+	};
 	return (
 		<Switch>
 			<Route path="/auth/login" exact>
-				<AuthPage isLoginPage={true} />
+				{isAuth ? (
+					redicretToHomePage()
+				) : (
+					<AuthPage isLoginPage={true} />
+				)}
 			</Route>
 			<Route path="/auth/signup" exact>
-				<AuthPage isLoginPage={false} />
+				{isAuth ? (
+					redicretToHomePage()
+				) : (
+					<AuthPage isLoginPage={false} />
+				)}
 			</Route>
 			<Route path="/auth/account-created" exact>
-				<AccountCreatedPage />
+				{isAuth ? redicretToHomePage() : <AccountCreatedPage />}
 			</Route>
 			<Route path="/auth/forgot-password" exact>
 				<ForgotPasswordPage />
-			</Route>
-			<Route path="/auth/reset-password/:token">
-				<ResetPasswordPage />
-			</Route>
-			<Route path="/auth/confirm-email/:token">
-				<ConfirmEmailPage />
 			</Route>
 			<Route path="/auth/send-confirm-email">
 				<SendConfirmEmailPage />
