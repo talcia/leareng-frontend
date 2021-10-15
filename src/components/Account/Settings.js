@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeToDarkMode, changeToLightMode } from '../../store/theme-actions';
 import ToggleButton from 'react-toggle-button';
+import { darkTheme } from '../../constans/colors';
 
 import classes from './Settings.module.css';
 
 const Settings = () => {
-	const [darkModeIsOn, setDarkModeIsOn] = useState(false);
+	const themeMode = useSelector((state) => state.theme.theme);
+	const [darkModeIsOn, setDarkModeIsOn] = useState(themeMode === darkTheme);
 	const dispatch = useDispatch();
 	const onDarkModeHandler = async () => {
 		try {

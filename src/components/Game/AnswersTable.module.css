@@ -20,6 +20,10 @@ table {
 	background-color: var(--main-background);
 }
 
+.translation .title tr td {
+	color: var(--dark-blue);
+}
+
 .words > :nth-child(odd) {
 	background-color: var(--light-grey);
 }

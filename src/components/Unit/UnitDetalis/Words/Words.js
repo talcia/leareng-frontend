@@ -94,7 +94,6 @@ const Words = ({ isCreator, unit, updateNumberOfWords }) => {
 						<td>No</td>
 						<td>Word</td>
 						<td>Translation</td>
-						<td></td>
 					</tr>
 				</tbody>
 			</table>

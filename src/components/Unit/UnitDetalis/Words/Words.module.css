@@ -16,8 +16,13 @@ table {
 }
 
 .words .title tbody tr {
+	text-align: center;
 	font-weight: bold;
 	background-color: var(--main-background);
+}
+
+.title tbody tr * {
+	color: var(--dark-blue);
 }
 
 tbody > tr > :nth-child(1) {
@@ -34,16 +39,11 @@ tbody > tr > :nth-child(3) {
 
 tbody > :nth-child(odd) {
 	background-color: var(--light-grey);
+	color: var(--main-background);
 }
 
 tbody {
 	color: var(--dark-blue);
-}
-
-.words table thead {
-	font-weight: bold;
-	color: var(--dark-blue);
-	width: 100%;
 }
 
 .words td {

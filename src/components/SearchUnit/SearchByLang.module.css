@@ -4,6 +4,7 @@
 	width: 50%;
 	align-items: center;
 	justify-content: center;
+	color: var(--dark-blue);
 }
 
 .searchLang div {
